@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USHATBOT</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load TensorFlow.js from a script tag -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Mensaje de introducción -->
+    <div id="intro-message">
+        <img src="images/logo.png" alt="Logo" id="intro-image" /><br>
+        ¡Bienvenido al Usatbot!
+    </div>
+
+    <!-- Contenedor del chatbot -->
+    <div id="chatbot">
+        <div id="chat-window">
+            <div id="messages"></div>
+        </div>
+        <div id="input-area">
+            <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje aquí..." />
+            <button type="button" class="btn btn-primary" id="send-button"><svg xmlns="http://www.w3.org/2000/svg"
+                    width="25" height="25" viewBox="0 0 20 20">
+                    <path fill="currentColor" d="m0 0l20 10L0 20zm0 8v4l10-2z" />
+                </svg></button>
+        </div>
+    </div>
+
+    <script>
+        // Esperamos a que la animación de introducción termine
+        setTimeout(function () {
+            // Ocultamos el mensaje de introducción
+            document.getElementById('intro-message').style.display = 'none';
+
+            // Mostramos el chatbot
+            document.getElementById('chatbot').style.display = 'flex';
+
+            // Activamos el fondo con la imagen en el body
+            document.body.classList.add('show-chat'); // Añadir la clase show-chat al body
+
+            // Cambiamos el fondo del body gradualmente
+            document.body.style.backgroundColor = '#f4f4f4'; // Fondo blanco del chat
+
+            // Cambiamos el fondo del mensaje de introducción a blanco (o color deseado)
+            document.getElementById('intro-message').style.backgroundColor = '#f4f4f4'; // Mismo color que el chat
+        }, 4000); // Duración de la animación (4 segundos)
+
+        function scrollToBottom() {
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        // Llama a esta función después de agregar un nuevo mensaje.
+        scrollToBottom();
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
