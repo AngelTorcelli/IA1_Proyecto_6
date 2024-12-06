@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot con Brain.js</title>
+    <script src="//unpkg.com/brain.js"></script>
+</head>
+<body>
+    <h1>Chatbot con Brain.js</h1>
+    <input type="text" id="inputText" placeholder="Escribe una pregunta..." />
+    <button onclick="generateResponse()">Enviar</button>
+    <div id="response"></div>
+
+    <script>
+        const net = new brain.recurrent.LSTM();
+
+        const trainingData = [
+            { input: '¿Qué es una variable?', output: 'Una variable es un contenedor para almacenar datos.' },
+            { input: '¿Cómo se usa una variable?', output: 'Para usar una variable, primero debes declararla, luego asignarle un valor.' },
+            { input: '¿Para qué sirve una variable en programación?', output: 'Las variables permiten almacenar datos que luego puedes usar en tu código.' },
+            { input: '¿Qué significa una variable en programación?', output: 'En programación, una variable es un espacio de memoria donde puedes guardar información.' },
+
+            { input: '¿Qué es una función?', output: 'Una función es un bloque de código que realiza una tarea específica.' },
+            { input: '¿Cómo funciona una función?', output: 'Las funciones permiten reutilizar código. Se definen una vez y luego se pueden llamar múltiples veces.' },
+            { input: 'Explica qué es una función en programación.', output: 'Una función es un conjunto de instrucciones que se ejecutan cuando se invoca.' },
+            { input: '¿Qué hace una función?', output: 'Una función toma entradas (argumentos) y devuelve un resultado basado en esos argumentos.' },
+
+            { input: '¿Qué es un bucle?', output: 'Un bucle es una estructura de control que repite un bloque de código mientras se cumpla una condición.' },
+            { input: 'Explica un bucle en programación.', output: 'Un bucle permite ejecutar un conjunto de instrucciones repetidamente, mientras se cumpla una condición.' },
+            { input: '¿Cuáles son los tipos de bucles?', output: 'Los bucles más comunes son los bucles for, while y do-while.' },
+            { input: '¿Qué hace un bucle while?', output: 'Un bucle while ejecuta un conjunto de instrucciones mientras una condición sea verdadera.' },
+
+            { input: '¿Qué es un array?', output: 'Un array es una estructura de datos que almacena una colección ordenada de elementos.' },
+            { input: '¿Cómo funciona un array?', output: 'Un array permite almacenar múltiples valores bajo una sola variable, y puedes acceder a sus elementos por su índice.' },
+            { input: 'Explica qué es un array en programación.', output: 'Un array es una lista de elementos organizados de manera secuencial.' },
+            { input: '¿Para qué se usa un array?', output: 'Los arrays se utilizan para almacenar múltiples datos en una sola variable, facilitando su gestión.' }
+        ];
+
+        net.train(trainingData, {
+            iterations: 2000, 
+            log: true,      
+            logPeriod: 100
+        });
+
+        function generateResponse() {
+            const userInput = document.getElementById('inputText').value;
+            if (userInput.trim() === "") {
+                document.getElementById('response').innerText = 'Por favor, escribe una pregunta.';
+                return;
+            }
+
+            const response = net.run(userInput);
+            console.log("pregunta: ",userInput);
+            console.log("respuesta:",response);
+
+            document.getElementById('response').innerText = `Respuesta: ${response}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TensorFlow.js QnA Model</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .answer {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Question-Answer </h1>
+  <form id="qa-form">
+    <label for="passage">Contexto:</label>
+    <textarea id="passage" placeholder="Ingrese el contexto aqui"></textarea>
+    <label for="question">Pregunta:</label>
+    <input type="text" id="question" placeholder="Ingrese su pregunta aqui" style="width: 100%; padding: 5px;">
+    <button type="button" onclick="getAnswer()">Encontrar respuesta</button>
+  </form>
+  <div id="output" class="answer"></div>
+
+  <script>
+    let qnaModel;
+
+    async function loadModel() {
+      document.getElementById('output').innerText = 'Cargando modelo.';
+      qnaModel = await qna.load();
+      document.getElementById('output').innerText = 'Modelo cargado.';
+    }
+
+    async function getAnswer() {
+      const passage = document.getElementById('passage').value;
+      const question = document.getElementById('question').value;
+
+      if (!passage || !question) {
+        document.getElementById('output').innerText = 'Porfavor ingrese un contexto y una pregunta';
+        return;
+      }
+
+      document.getElementById('output').innerText = 'Encontrando respuesta...';
+      const answers = await qnaModel.findAnswers(question, passage);
+
+      if (answers.length > 0) {
+        document.getElementById('output').innerText = `Respuesta: ${answers[0].text}`;
+      } else {
+        document.getElementById('output').innerText = 'No se encontro una respuesta para la pregunta.';
+      }
+    }
+    loadModel();
+  </script>
+</body>
+</html>
