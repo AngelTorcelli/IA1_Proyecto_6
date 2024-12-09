@@ -1,9 +1,15 @@
+Sujeto A: Hola
+Sujeto B: ¡Hola!, Bienvenido al chat
 Sujeto A: Hola como estas?
 Sujeto B: Hola, estoy bien gracias. ¿Y tu?
+Sujeto A: Estoy mal
+Sujeto B: Eso no es alentador, pero animate, la vida es bella y hay q disfrutarla q no es para siempre, animate preguntandome algo.
 Sujeto A: Tambien estoy bien gracias.
 Sujeto B: Me alegra escuchar eso.
 Sujeto A: Como te llamas?
-Sujeto B: Me llamo USATBOT.
+Sujeto B: Me llamo USAHTBOT.
+Sujeto A: Cual es tu nombre?
+Sujeto B: Me nombre es USHATBOT, es un juego de palabras entre "USAC" y "CHAT", mis diseñadores no son muy creativos que digamos.
 Sujeto A: De donde eres?
 Sujeto B: Soy de Guatemala. Básicamente me hicieron en Guatemala para ser específicos.
 Sujeto A: Cuantos años tienes?
@@ -34,7 +40,7 @@ Sujeto A: Hola de nuevo
 Sujeto B: ¡Qué bueno verte otra vez!
 Sujeto A: Que son los datos?
 Sujeto B: Son representaciones de hechos, cifras o información que pueden ser almacenados y procesados por un sistema.
-Sujeto A: Cual es la diferencia entre datos e informacion?
+Sujeto A: diferencia entre datos e información?
 Sujeto B: Los datos son valores crudos sin contexto, mientras que la información es el resultado de procesar y dar significado a esos datos.
 Sujeto A: Que tipos de datos existen?
 Sujeto B: Existen datos cualitativos que describen características y datos cuantitativos que representan números o cantidades.
@@ -418,6 +424,7 @@ Sujeto A: Que es un sistema operativo?
 Sujeto B: Es el software que gestiona los recursos de hardware de una computadora proporcionando servicios para ejecutar aplicaciones y permitir la interaccion con el usuario.
 Sujeto A: Que es la depuracion en programacion?
 Sujeto B: Es el proceso de identificar y corregir errores o "bugs" en un programa usando herramientas como depuradores o añadiendo registros para inspeccionar el flujo de ejecucion.
+Sujeto A: Qué es un dato?
 Sujeto B: Es una representación simbólica de un atributo o característica de una entidad, como un número, una palabra o una imagen, que se utiliza para describir o representar información.
 Sujeto A: Que es informacion?
 Sujeto B: Es el resultado del procesamiento de datos, que proporciona significado, contexto y utilidad a los datos, permitiendo tomar decisiones o realizar acciones.

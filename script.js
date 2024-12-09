@@ -5,6 +5,9 @@ model.compile({ loss: 'categoricalCrossentropy', optimizer: 'adam', metrics: ['a
 
 console.log("Tamaño de trainingData:", trainingData.length);
 console.log("Tamaño de targetData:", targetData.length);
+if (trainingData.length !== targetData.length) {
+    throw new Error("Error: Las longitudes de trainingData y targetData no coinciden. Deteniendo ejecución.");
+}
 
 const trainingTensor = tf.tensor2d(trainingData);
 const targetTensor = tf.tensor2d(targetData);
@@ -19,20 +22,31 @@ async function trainModel() {
 
 function encodeInput(input) {
     const vector = Array(keywords.length).fill(0);
-    input.toLowerCase().split(" ").forEach(word => {
-        if (keywords.includes(word)) {
-            vector[keywords.indexOf(word)] = 1;
+    const words = input.toLowerCase().split(" ");
+    const bigrams = [];
+    
+    // Generar bigramas de la entrada
+    for (let i = 0; i < words.length - 1; i++) {
+        bigrams.push(words[i] + " " + words[i + 1]);
+    }
+    
+    const allTerms = words.concat(bigrams); // Unir unigramas y bigramas
+    allTerms.forEach(term => {
+        if (keywords.includes(term)) {
+            vector[keywords.indexOf(term)] = 1;
         }
     });
+
     return tf.tensor2d([vector]);
 }
+
 
 
 function decodeOutput(output) {
     const predictions = output.dataSync(); 
     const maxIndex = predictions.indexOf(Math.max(...predictions));
     console.log("Índice de mayor probabilidad:", maxIndex);
-    console.log("Predicciones:", predictions);
+    //console.log("Predicciones:", predictions);
 
     if (predictions[maxIndex] < 0.05) {
         return "Lo siento, no entiendo la pregunta."; 
