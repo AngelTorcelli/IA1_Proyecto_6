@@ -12,8 +12,10 @@ const targetTensor = tf.tensor2d(targetData);
 
 async function trainModel() {
     console.log('Entrenando el modelo...');
+    document.getElementById("loading-msg").textContent = "Entrenando el modelo... ⌛";
     await model.fit(trainingTensor, targetTensor, { epochs: 500 });
     console.log('Entrenamiento completado.');
+    document.getElementById("loading-msg").textContent = "Entrenamiento completado ✔️";
 }
 
 // Función para convertir texto a vectores
@@ -31,8 +33,15 @@ function encodeInput(input) {
 function decodeOutput(output) {
     const predictions = output.dataSync(); // Extraer probabilidades como un array
     const maxIndex = predictions.indexOf(Math.max(...predictions)); // Índice con mayor probabilidad
-    const response = targetResponses[maxIndex]; // Usar targetResponses con el índice correcto
-    return response || "Lo siento, no entiendo la pregunta."; // Si no hay respuesta, devolver un mensaje por defecto
+    console.log("Índice de mayor probabilidad:", maxIndex);
+    console.log("Predicciones:", predictions);
+
+    if (predictions[maxIndex] < 0.05) {
+        return "Lo siento, no entiendo la pregunta."; // Mensaje por defecto si no hay índice
+    }
+    const response = targetResponses[maxIndex]; 
+    console.log("Respuesta:", response);
+    return response;
 }
 
 // Procesar la entrada del usuario

@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -177,4 +177,16 @@ body.show-chat {
     to {
         width: 100%;
     }
+}
+
+#loading-msg {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-size: 1rem;
+    font-weight: 500;    
+    color: #535353;
+    transition: color 2s ease;
+    font-family: 'Courier New', Courier, monospace;
 }

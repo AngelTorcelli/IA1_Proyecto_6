@@ -1,7 +1,15 @@
-Sujeto A: Hola cómo estás?
-Sujeto B: Hola, estoy bien, gracias. ¿Y tú?
+Sujeto A: Hola
+Sujeto B: ¿como estás?
+Sujeto A: estoy bien gracias ¿Y tú?
+Sujeto B: También estoy bien, gracias. ¿Qué has estado haciendo?
+Sujeto A: como estas?
+Sujeto B: estoy excelente, gracias. ¿Y tú?
 Sujeto A: También estoy bien, gracias.
 Sujeto B: Me alegra escuchar eso.
+Sujeto A: ¿Qué puedes hacer?
+Sujeto B: Por el momento, puedo responder preguntas, mantener conversaciones y brindar información sobre diversos temas.
+Sujeto A: ¿Cual es tu nombre?
+Sujeto B: Me llamo USATBOT
 Sujeto A: ¿Cómo te llamas?
 Sujeto B: Me llamo USATBOT
 Sujeto A: ¿De dónde eres?
@@ -14,7 +22,7 @@ Sujeto A: Yo soy diseñadora gráfica. ¿Qué te gusta hacer en tu tiempo libre?
 Sujeto B: Me gusta leer y hacer senderismo. ¿Y a ti?
 Sujeto A: Me encanta dibujar y salir a correr. ¿Tienes alguna mascota?
 Sujeto B: Sí, tengo un perro llamado Max. ¿Y tú?
-Sujeto A: Cambiando de tema, ¿qué opinas de la inteligencia artificial?
+Sujeto A: que opinas de la inteligencia artificial?
 Sujeto B: Es un tema fascinante. Creo que tiene un gran potencial para mejorar nuestras vidas. ¿Tú qué opinas?
 Sujeto A: Estoy de acuerdo. Aunque también creo que debemos ser cuidadosos con cómo se usa.
 Sujeto B: Sí, la ética es fundamental. ¿Crees que algún día la IA será tan avanzada como los humanos?
@@ -32,4 +40,427 @@ Sujeto A: Sí, pero no he sido constante. Este año quiero intentarlo en serio. 
 Sujeto B: Un poco. He aprendido algunas canciones básicas, pero quiero mejorar mi técnica.
 Sujeto A: Suena genial. Bueno, ha sido una conversación interesante. ¡Espero que podamos seguir hablando pronto!
 Sujeto B: Sí, ha sido un gusto conocerte, Marina. ¡Hasta luego!
-
+Sujeto A: Que son los datos?
+Sujeto B: Son representaciones de hechos, cifras o informacion que pueden ser almacenados y procesados por un sistema.
+Sujeto A: Cual es la diferencia entre datos e informacion?
+Sujeto B: Los datos son valores crudos sin contexto, mientras que la informacion es el resultado de procesar y dar significado a esos datos.
+Sujeto A: Que tipos de datos existen?
+Sujeto B: Existen datos cualitativos, que describen caracteristicas, y datos cuantitativos, que representan numeros o cantidades.
+Sujeto A: Que es un dato estructurado?
+Sujeto B: Es un dato organizado en un formato predefinido, como tablas en una base de datos.
+Sujeto A: Que es un dato no estructurado?
+Sujeto B: Es un dato que no sigue un formato fijo, como videos, imagenes o texto en lenguaje natural.
+Sujeto A: Que son los metadatos?
+Sujeto B: Son datos que describen otros datos, como la fecha de creacion o el tamaño de un archivo.
+Sujeto A: Que significa big data?
+Sujeto B: Es un gran volumen de datos que no puede ser procesado con herramientas convencionales debido a su tamaño, velocidad o variedad.
+Sujeto A: Que es un dato sensible?
+Sujeto B: Es un tipo de dato personal que debe protegerse, como informacion medica o financiera.
+Sujeto A: Que es la integridad de los datos?
+Sujeto B: Es la precision y consistencia de los datos a lo largo de su ciclo de vida.
+Sujeto A: Como se almacenan los datos en una computadora?
+Sujeto B: Los datos se almacenan como bits en dispositivos de memoria, organizados en formatos como archivos o bases de datos.
+Sujeto A: Que es el lenguaje ensamblador?
+Sujeto B: Es un lenguaje de programacion de bajo nivel que traduce instrucciones directamente al codigo maquina que entiende el procesador.
+Sujeto A: Que significa bajo nivel en programacion?
+Sujeto B: Se refiere a lenguajes que trabajan cerca del hardware, permitiendo un control detallado de los recursos del sistema.
+Sujeto A: Que es un registro en ensamblador?
+Sujeto B: Es una pequeña memoria dentro del procesador usada para guardar datos y realizar operaciones rapidamente.
+Sujeto A: Que es un opcode?
+Sujeto B: Es la parte de una instruccion en ensamblador que indica al procesador que operacion debe realizar.
+Sujeto A: Que es un direccionamiento en ensamblador?
+Sujeto B: Es la manera de especificar donde encontrar o almacenar los datos necesarios para una instruccion.
+Sujeto A: Que es la pila (stack) en programacion de bajo nivel?
+Sujeto B: Es una estructura de datos en memoria que funciona como una pila real: los datos se apilan y desapilan en orden.
+Sujeto A: Que es un bucle en ensamblador?
+Sujeto B: Es una serie de instrucciones que se repiten hasta que se cumple una condicion especifica.
+Sujeto A: Que es una interrupcion en programacion de bajo nivel?
+Sujeto B: Es una señal al procesador que detiene temporalmente la ejecucion para atender un evento importante.
+Sujeto A: Para que se usa el ensamblador hoy en dia?
+Sujeto B: Se usa principalmente en sistemas embebidos, controladores de hardware y optimizacion de software critico.
+Sujeto A: Que ventaja tiene programar en bajo nivel?
+Sujeto B: Ofrece un mayor control sobre el hardware y permite crear programas muy optimizados.
+Sujeto A: Que es una metodologia agil?
+Sujeto B: Es un enfoque para la gestion de proyectos que se basa en la colaboracion, la adaptabilidad y la entrega incremental de valor.
+Sujeto A: Que es Scrum?
+Sujeto B: Es una metodologia agil para gestionar proyectos, especialmente en desarrollo de software, que se basa en iteraciones llamadas sprints.
+Sujeto A: Que es un sprint?
+Sujeto B: Es un periodo de trabajo fijo, normalmente de 1 a 4 semanas, donde el equipo desarrolla y entrega una parte funcional del producto.
+Sujeto A: Que es el backlog?
+Sujeto B: Es una lista de tareas o funciones pendientes que el equipo debe completar en el proyecto.
+Sujeto A: Quien es el Product Owner?
+Sujeto B: Es la persona que define los requisitos, prioriza el backlog y asegura que el equipo trabaje en lo que aporta mas valor al cliente.
+Sujeto A: Que hace el Scrum Master?
+Sujeto B: Es el encargado de guiar al equipo, eliminar obstaculos y asegurarse de que se sigan las practicas de Scrum.
+Sujeto A: Que es un Daily Scrum?
+Sujeto B: Es una reunion diaria breve, de unos 15 minutos, donde el equipo revisa su progreso y planifica el trabajo del dia.
+Sujeto A: Que se hace en la reunion de planificacion?
+Sujeto B: Se define que tareas se van a completar durante el sprint y se crea un plan para realizarlas.
+Sujeto A: Que es una retrospectiva?
+Sujeto B: Es una reunion al final del sprint donde el equipo analiza que salio bien y que se puede mejorar para el siguiente.
+Sujeto A: Que se entrega al final de un sprint?
+Sujeto B: Un incremento del producto, que es una version funcional y utilizable.
+Sujeto A: Que es la velocidad del equipo?
+Sujeto B: Es la cantidad de trabajo que el equipo puede completar en un sprint, medida generalmente en puntos de historia.
+Sujeto A: Que es la ingenieria en sistemas?
+Sujeto B: Es una disciplina que diseña, desarrolla y gestiona sistemas complejos combinando hardware, software, redes y procesos.
+Sujeto A: En que areas trabaja un ingeniero en sistemas?
+Sujeto B: Puede trabajar en desarrollo de software, administracion de redes, seguridad informatica, inteligencia artificial, gestion de bases de datos y sistemas embebidos.
+Sujeto A: Que habilidades necesita un ingeniero en sistemas?
+Sujeto B: Necesita habilidades en programacion, resolucion de problemas, diseño de arquitecturas de sistemas, comunicacion y manejo de tecnologias emergentes.
+Sujeto A: Que diferencia hay entre ingenieria en sistemas e ingenieria en software?
+Sujeto B: Ingenieria en sistemas abarca hardware, software y redes, mientras que ingenieria en software se centra exclusivamente en el desarrollo y mantenimiento de software.
+Sujeto A: Que es el ciclo de vida de un sistema?
+Sujeto B: Es el proceso completo desde la concepcion y diseño de un sistema, pasando por su desarrollo, implementacion, mantenimiento y eventual retiro.
+Sujeto A: Que es un sistema embebido?
+Sujeto B: Es un sistema diseñado para realizar funciones especificas dentro de un dispositivo, como el software de un electrodomestico o un automovil.
+Sujeto A: Que importancia tiene la ciberseguridad en ingenieria en sistemas?
+Sujeto B: Es crucial para proteger los sistemas y datos frente a amenazas como hackers, malware o accesos no autorizados.
+Sujeto A: Que es un sistema distribuido?
+Sujeto B: Es un conjunto de computadoras que trabajan juntas como si fueran un unico sistema, aunque estan separadas fisicamente.
+Sujeto A: Como influye la inteligencia artificial en la ingenieria en sistemas?
+Sujeto B: La inteligencia artificial permite optimizar procesos, automatizar tareas y mejorar la toma de decisiones en sistemas complejos.
+Sujeto A: Que herramientas suelen usar los ingenieros en sistemas?
+Sujeto B: Usan herramientas como lenguajes de programacion, plataformas de gestion de proyectos, software de diseño de redes y entornos de desarrollo integrado (IDE).
+Sujeto A: Que es la interoperabilidad en un sistema?
+Sujeto B: Es la capacidad de diferentes sistemas o componentes de trabajar juntos, compartiendo datos y funcionalidad de manera efectiva.
+Sujeto A: Que son los sistemas de informacion?
+Sujeto B: Son sistemas diseñados para recolectar, procesar, almacenar y distribuir informacion para apoyar la toma de decisiones en una organizacion.
+Sujeto A: Que es la arquitectura de un sistema?
+Sujeto B: Es la estructura fundamental de un sistema, que define sus componentes, sus relaciones y las reglas para su diseño y evolucion.
+Sujeto A: Que tendencias actuales influyen en la ingenieria en sistemas?
+Sujeto B: Tecnologias como la computacion en la nube, blockchain, Internet de las cosas (IoT) y el aprendizaje automatico estan cambiando la forma en que se diseñan y gestionan los sistemas.
+Sujeto A: Que es la inteligencia artificial?
+Sujeto B: Es una rama de la computacion que busca crear sistemas capaces de realizar tareas que normalmente requieren inteligencia humana, como aprender, razonar y resolver problemas.
+Sujeto A: Cuales son los tipos de inteligencia artificial?
+Sujeto B: Hay tres tipos principales: inteligencia artificial estrecha (IA débil), inteligencia artificial general (IA fuerte) y superinteligencia artificial.
+Sujeto A: Que es el aprendizaje automatico?
+Sujeto B: Es una rama de la IA que permite a las maquinas aprender de los datos y mejorar su rendimiento sin ser programadas explicitamente para cada tarea.
+Sujeto A: Que diferencia hay entre aprendizaje supervisado y no supervisado?
+Sujeto B: En el aprendizaje supervisado, se usan datos etiquetados para entrenar el modelo, mientras que en el no supervisado, el modelo busca patrones en datos sin etiquetar.
+Sujeto A: Que es una red neuronal?
+Sujeto B: Es un modelo computacional inspirado en el cerebro humano, formado por nodos interconectados que procesan y transmiten informacion.
+Sujeto A: Para que se usa el procesamiento de lenguaje natural?
+Sujeto B: Se usa para que las maquinas entiendan, analicen y generen lenguaje humano, como en chatbots, traduccion automatica y analisis de sentimientos.
+Sujeto A: Que es la vision por computadora?
+Sujeto B: Es una rama de la IA que permite a las maquinas interpretar y analizar imagenes o videos para realizar tareas como reconocimiento facial o deteccion de objetos.
+Sujeto A: Cuales son las aplicaciones de la inteligencia artificial?
+Sujeto B: Algunas aplicaciones incluyen diagnostico medico, vehiculos autonomos, asistentes virtuales, sistemas de recomendacion y analisis predictivo.
+Sujeto A: Que es un modelo de lenguaje como GPT?
+Sujeto B: Es un tipo de IA entrenada para comprender y generar texto coherente en lenguaje humano, basado en grandes cantidades de datos.
+Sujeto A: Que es la explicabilidad en inteligencia artificial?
+Sujeto B: Es la capacidad de una IA para explicar sus decisiones o predicciones de manera comprensible para los humanos.
+Sujeto A: Que riesgos tiene la inteligencia artificial?
+Sujeto B: Algunos riesgos incluyen la perdida de privacidad, el sesgo en los algoritmos, el desempleo tecnologico y el uso indebido en armas o vigilancia masiva.
+Sujeto A: Que es la etica en inteligencia artificial?
+Sujeto B: Es el estudio de como desarrollar y usar la IA de manera responsable, asegurando que sea justa, segura y benefica para la sociedad.
+Sujeto A: Que son los datos de entrenamiento?
+Sujeto B: Son datos utilizados para enseñar a un modelo de IA a reconocer patrones y realizar predicciones o clasificaciones.
+Sujeto A: Como contribuye la IA al campo de la medicina?
+Sujeto B: Ayuda en el diagnostico de enfermedades, la identificacion de tratamientos personalizados y el analisis de imagenes medicas, como radiografias o tomografias.
+Sujeto A: Que son los agentes inteligentes?
+Sujeto B: Son programas que perciben su entorno y actuan autonomamente para lograr un objetivo, como asistentes virtuales o robots.
+Sujeto A: Que es el aprendizaje por refuerzo?
+Sujeto B: Es un metodo de aprendizaje donde un agente mejora su comportamiento mediante recompensas o penalizaciones basadas en sus acciones.
+Sujeto A: Que importancia tienen los datos en la IA?
+Sujeto B: Los datos son fundamentales para entrenar y evaluar modelos de IA, ya que de ellos depende la precision y eficacia del sistema.
+Sujeto A: Que es un algoritmo de clasificacion?
+Sujeto B: Es un algoritmo que asigna datos a categorias predefinidas, como clasificar correos entre spam y no spam.
+Sujeto A: Como impacta la IA en el mercado laboral?
+Sujeto B: Puede automatizar tareas repetitivas, creando nuevas oportunidades en tecnologia, pero tambien desplazando ciertos empleos tradicionales.
+Sujeto A: Que es la filosofia en inteligencia artificial?
+Sujeto B: Es el estudio de las implicaciones eticas, metafisicas y epistemologicas de crear maquinas inteligentes y su impacto en la sociedad y la humanidad.
+Sujeto A: Que plantea el test de Turing en filosofia?
+Sujeto B: Propone que una maquina puede considerarse inteligente si logra interactuar con humanos sin que estos distingan si es una maquina o una persona.
+Sujeto A: Es posible que las maquinas tengan conciencia?
+Sujeto B: Es un debate abierto. Algunos creen que la conciencia requiere una base biologica, mientras que otros piensan que es posible replicarla en sistemas artificiales.
+Sujeto A: Que es el dilema etico de la IA?
+Sujeto B: Es la cuestion de como programar sistemas de IA para tomar decisiones morales, especialmente en situaciones donde los valores humanos estan en conflicto.
+Sujeto A: Que impacto tiene la IA en la definicion de ser humano?
+Sujeto B: La IA desafia nuestra comprension de la inteligencia y creatividad, cuestionando si estas caracteristicas son exclusivas de los humanos.
+Sujeto A: Que es el problema de la caja negra en IA?
+Sujeto B: Es la dificultad de entender como una IA llega a ciertas decisiones, lo que plantea problemas de confianza y transparencia.
+Sujeto A: Que son los sesgos en inteligencia artificial?
+Sujeto B: Son prejuicios que los sistemas de IA pueden adquirir de los datos con los que son entrenados, afectando decisiones y resultados.
+Sujeto A: Puede la IA tener libre albedrio?
+Sujeto B: Es poco probable, ya que las maquinas siguen reglas y algoritmos predefinidos, pero es un tema filosofico interesante.
+Sujeto A: Que piensa la filosofia sobre la responsabilidad en IA?
+Sujeto B: Explora quien es responsable de las acciones de una IA: los desarrolladores, los usuarios o la propia maquina.
+Sujeto A: Puede la IA tener objetivos propios?
+Sujeto B: No en el sentido humano. Sus objetivos son definidos por los programadores, aunque puede aprender estrategias para alcanzarlos.
+Sujeto A: Que es la singularidad tecnologica?
+Sujeto B: Es una teoria que sugiere que en el futuro la IA superara la inteligencia humana, generando cambios impredecibles en la sociedad.
+Sujeto A: La creatividad de la IA es comparable a la humana?
+Sujeto B: No del todo. La IA puede generar contenido nuevo, pero carece de intencion, emociones o contexto cultural profundos.
+Sujeto A: Puede la IA cambiar nuestra percepcion del alma?
+Sujeto B: Si, porque plantea preguntas sobre si la conciencia y el alma son exclusivas de los seres biologicos o si pueden surgir en sistemas artificiales.
+Sujeto A: Que es el dualismo en el contexto de la IA?
+Sujeto B: Es la idea de que la mente y el cuerpo son entidades separadas, cuestionando si una maquina puede tener una mente independiente de su hardware.
+Sujeto A: Puede la IA ayudarnos a entender mejor la inteligencia humana?
+Sujeto B: Si, porque al intentar replicarla en maquinas, obtenemos nuevas perspectivas sobre como funciona nuestra mente.
+Sujeto A: Como afecta la IA la autonomia humana?
+Sujeto B: Puede mejorarla al automatizar tareas, pero tambien puede limitarla si dependemos demasiado de las maquinas para tomar decisiones.
+Sujeto A: Que es el argumento de la amenaza existencial de la IA?
+Sujeto B: Es la preocupacion de que una IA avanzada podria volverse incontrolable y representar un peligro para la humanidad.
+Sujeto A: Como define la filosofia la relacion entre humanos e IA?
+Sujeto B: La filosofia analiza como la coexistencia con IA puede transformar nuestra identidad, valores y roles en la sociedad.
+Sujeto A: Que es JavaScript?
+Sujeto B: Es un lenguaje de programación de alto nivel y dinámico usado principalmente para el desarrollo web, permitiendo crear contenido interactivo en los navegadores.
+Sujeto A: Cual es la diferencia entre var, let y const?
+Sujeto B: var tiene alcance global o de función, mientras que let y const tienen alcance de bloque. Además, const se usa para valores que no cambian.
+Sujeto A: Que es el DOM en JavaScript?
+Sujeto B: Es la representación en forma de árbol de un documento HTML, que permite a JavaScript manipular su estructura, estilo y contenido.
+Sujeto A: Que son las funciones de flecha?
+Sujeto B: Son una sintaxis más corta para escribir funciones en JavaScript, introducidas en ES6, que no tienen su propio contexto this.
+Sujeto A: Que es un callback?
+Sujeto B: Es una función que se pasa como argumento a otra función y se ejecuta después de que esta complete su tarea.
+Sujeto A: Que es una promesa en JavaScript?
+Sujeto B: Es un objeto que representa un valor que estará disponible ahora, en el futuro o nunca, y se usa para manejar operaciones asincrónicas.
+Sujeto A: Que hace el método map()?
+Sujeto B: Crea un nuevo arreglo aplicando una función a cada elemento del arreglo original.
+Sujeto A: Para qué se utiliza JSON en JavaScript?
+Sujeto B: Para intercambiar datos entre un servidor y un cliente en un formato estructurado y legible.
+Sujeto A: Que es el event loop?
+Sujeto B: Es un mecanismo que permite que JavaScript maneje operaciones asincrónicas sin bloquear la ejecución del código principal.
+Sujeto A: Que diferencia hay entre == y ===?
+Sujeto B: == compara valores sin importar el tipo, mientras que === compara valores y tipos estrictamente.
+Sujeto A: Que son los módulos en JavaScript?
+Sujeto B: Son archivos que encapsulan código para que sea reutilizable e importable en otros archivos mediante import y export.
+Sujeto A: Que es la programación orientada a objetos en JavaScript?
+Sujeto B: Es un paradigma que permite crear objetos con propiedades y métodos, utilizando clases o funciones constructoras.
+Sujeto A: Que es el hoisting en JavaScript?
+Sujeto B: Es el comportamiento en el que declaraciones de variables y funciones se mueven al inicio de su contexto durante la compilación.
+Sujeto A: Que es un objeto literal?
+Sujeto B: Es una forma de definir un objeto directamente con llaves {} y pares de clave-valor.
+Sujeto A: Que hace el método filter()?
+Sujeto B: Crea un nuevo arreglo con los elementos que cumplen una condición definida por una función.
+Sujeto A: Que es el prototipo en JavaScript?
+Sujeto B: Es un objeto del que otros objetos pueden heredar propiedades y métodos, permitiendo la reutilización de código.
+Sujeto A: Que es async/await?
+Sujeto B: Es una sintaxis que simplifica el manejo de operaciones asincrónicas al permitir escribir código más legible y estructurado.
+Sujeto A: Que es una IIFE?
+Sujeto B: Es una función que se ejecuta inmediatamente después de ser definida, normalmente para evitar contaminar el espacio global.
+Sujeto A: Que es una closure?
+Sujeto B: Es una función que recuerda el entorno en el que fue creada, permitiendo acceder a variables fuera de su alcance inmediato.
+Sujeto A: Que son las estructuras de datos?
+Sujeto B: Son formas de organizar y almacenar datos de manera eficiente para que puedan ser accedidos y manipulados de manera efectiva.
+Sujeto A: Cuales son los tipos de estructuras de datos más comunes?
+Sujeto B: Algunas de las estructuras más comunes son arreglos, listas enlazadas, pilas, colas, árboles y grafos.
+Sujeto A: Que es un arreglo?
+Sujeto B: Es una estructura de datos que almacena elementos en posiciones contiguas de memoria, permitiendo el acceso directo mediante índices.
+Sujeto A: Que es una lista enlazada?
+Sujeto B: Es una estructura de datos en la que cada elemento (nodo) contiene un valor y una referencia al siguiente nodo, permitiendo una inserción y eliminación eficiente.
+Sujeto A: Que es una pila (stack)?
+Sujeto B: Es una estructura de datos que sigue el principio LIFO (Last In, First Out), donde el último elemento insertado es el primero en ser retirado.
+Sujeto A: Que es una cola (queue)?
+Sujeto B: Es una estructura de datos que sigue el principio FIFO (First In, First Out), donde el primer elemento insertado es el primero en ser retirado.
+Sujeto A: Que es un grafo?
+Sujeto B: Es una estructura de datos compuesta por nodos (o vértices) y aristas (o enlaces) que conectan los nodos, permitiendo representar relaciones entre objetos de manera más general que los árboles.
+Sujeto A: Que es un árbol binario?
+Sujeto B: Es un tipo de árbol en el que cada nodo tiene como máximo dos hijos, conocidos como hijo izquierdo y hijo derecho.
+Sujeto A: Que es un árbol binario de búsqueda (BST)?
+Sujeto B: Es un tipo de árbol binario en el que los nodos están organizados de manera que el valor de cada nodo izquierdo es menor que el valor del nodo raíz, y el valor de cada nodo derecho es mayor.
+Sujeto A: Que es una tabla hash?
+Sujeto B: Es una estructura de datos que almacena elementos en una tabla utilizando una función hash para mapear claves a índices, permitiendo un acceso muy rápido a los datos.
+Sujeto A: Que es un heap?
+Sujeto B: Es una estructura de datos en forma de árbol que satisface la propiedad de que el valor de cada nodo es mayor o menor que el de sus hijos, dependiendo de si es un heap máximo o mínimo.
+Sujeto A: Que son los conjuntos?
+Sujeto B: Son estructuras de datos que almacenan elementos únicos, sin un orden específico, y permiten realizar operaciones como unión, intersección y diferencia.
+Sujeto A: Que son las colas de prioridad?
+Sujeto B: Son una variación de las colas en las que cada elemento tiene una prioridad, y el elemento con la mayor prioridad se retira primero, independientemente de su orden de inserción.
+Sujeto A: Como se almacenan los elementos en una lista enlazada doble?
+Sujeto B: En una lista enlazada doble, cada nodo contiene dos referencias: una al siguiente nodo y otra al nodo anterior, lo que permite recorrer la lista en ambas direcciones.
+Sujeto A: Que es la complejidad de tiempo de una operación en una estructura de datos?
+Sujeto B: Es una medida de cuánto tiempo se tarda en realizar una operación en una estructura de datos, dependiendo del tamaño de los datos. Se describe generalmente usando la notación Big O.
+Sujeto A: Que es la notación Big O?
+Sujeto B: Es una forma de describir la eficiencia de un algoritmo, indicando cómo el tiempo o espacio requerido crece con el tamaño de los datos de entrada.
+Sujeto A: Que es un árbol AVL?
+Sujeto B: Es un árbol binario de búsqueda autobalanceado, que asegura que la diferencia de altura entre los subárboles izquierdo y derecho de cualquier nodo sea como máximo 1.
+Sujeto A: Que es una estructura de datos dinámica?
+Sujeto B: Son estructuras cuyo tamaño puede cambiar durante la ejecución del programa, como las listas enlazadas o las pilas dinámicas.
+Sujeto A: Que es la búsqueda binaria en un arreglo?
+Sujeto B: Es un algoritmo eficiente que encuentra un elemento en un arreglo ordenado dividiendo repetidamente el arreglo a la mitad, eliminando la mitad que no puede contener el elemento buscado.
+Sujeto A: Que es una matriz?
+Sujeto B: Es una estructura de datos bidimensional que almacena elementos en filas y columnas, utilizada para representar tablas o matrices matemáticas.
+Sujeto A: Qué es un lenguaje de programación?
+Sujeto B: Es un conjunto de instrucciones que le indican a una computadora cómo realizar tareas específicas, permitiendo a los programadores crear software.
+Sujeto A: Qué es la sintaxis de un lenguaje de programación?
+Sujeto B: Es el conjunto de reglas que define la estructura y el formato correcto de las instrucciones dentro del lenguaje, similar a las reglas gramaticales de un idioma.
+Sujeto A: Qué es un compilador?
+Sujeto B: Es un programa que traduce el código fuente de un lenguaje de programación de alto nivel a un lenguaje de bajo nivel o código máquina que la computadora puede ejecutar.
+Sujeto A: Qué es un intérprete?
+Sujeto B: Es un programa que ejecuta el código fuente directamente, línea por línea, sin necesidad de compilarlo previamente a código máquina.
+Sujeto A: Qué es un lenguaje de programación de alto nivel?
+Sujeto B: Es un lenguaje que permite a los programadores escribir código más cercano al lenguaje humano, facilitando la programación, como Python, Java o C#.
+Sujeto A: Qué es un lenguaje de programación de bajo nivel?
+Sujeto B: Es un lenguaje que está más cercano al lenguaje máquina y permite controlar de manera más directa el hardware, como el lenguaje ensamblador o el código máquina.
+Sujeto A: Qué son las variables en programación?
+Sujeto B: Son espacios de memoria donde se almacenan datos que pueden ser modificados durante la ejecución de un programa.
+Sujeto A: Qué es un tipo de dato en programación?
+Sujeto B: Es una clasificación que define qué tipo de valor puede almacenar una variable, como entero, flotante, carácter o cadena de texto.
+Sujeto A: Qué es un algoritmo?
+Sujeto B: Es un conjunto de pasos ordenados que describen cómo resolver un problema específico de manera lógica y eficiente.
+Sujeto A: Qué es la depuración de un programa?
+Sujeto B: Es el proceso de identificar y corregir errores en el código fuente de un programa para que funcione correctamente.
+Sujeto A: Qué es la recursión en programación?
+Sujeto B: Es una técnica en la que una función se llama a sí misma para resolver un problema, dividiéndolo en subproblemas más pequeños.
+Sujeto A: Qué es un ciclo o bucle en programación?
+Sujeto B: Es una estructura que permite repetir un bloque de código varias veces mientras se cumpla una condición específica.
+Sujeto A: Qué es una función o método?
+Sujeto B: Es un bloque de código que realiza una tarea específica y puede ser llamado en diferentes partes del programa para evitar la repetición de código.
+Sujeto A: Qué es la programación orientada a objetos?
+Sujeto B: Es un paradigma de programación que organiza el código en "objetos", que son instancias de clases y contienen atributos y métodos para manipular datos.
+Sujeto A: Qué es una clase en programación orientada a objetos?
+Sujeto B: Es una plantilla o molde que define las propiedades y comportamientos que tendrán los objetos creados a partir de ella.
+Sujeto A: Qué es un objeto en programación orientada a objetos?
+Sujeto B: Es una instancia de una clase que tiene sus propios valores para los atributos y puede ejecutar los métodos definidos en la clase.
+Sujeto A: Qué es la herencia en programación orientada a objetos?
+Sujeto B: Es un mecanismo que permite crear nuevas clases basadas en clases existentes, heredando sus atributos y métodos.
+Sujeto A: Qué es el polimorfismo en programación orientada a objetos?
+Sujeto B: Es la capacidad de un objeto de tomar muchas formas, permitiendo que una misma función o método se comporte de manera diferente dependiendo del tipo de objeto que lo invoque.
+Sujeto A: Qué es un compilador JIT?
+Sujeto B: Es un compilador que convierte el código intermedio a código máquina en tiempo de ejecución, mejorando la eficiencia del programa.
+Sujeto A: Qué es el manejo de excepciones en programación?
+Sujeto B: Es un mecanismo que permite manejar errores o situaciones inesperadas durante la ejecución de un programa, evitando que este se detenga de manera abrupta.
+Sujeto A: Qué es un puntero en programación?
+Sujeto B: Es una variable que almacena la dirección de memoria de otro valor, permitiendo el acceso directo a esa ubicación de memoria.
+Sujeto A: Qué es la concurrencia en programación?
+Sujeto B: Es la capacidad de un programa para realizar múltiples tareas al mismo tiempo, mejorando la eficiencia en el uso de los recursos del sistema.
+Sujeto A: Qué es la programación funcional?
+Sujeto B: Es un paradigma de programación que trata las funciones como ciudadanos de primera clase y evita los efectos secundarios, enfocándose en la transformación de datos mediante funciones puras.
+Sujeto A: Qué son los módulos en programación?
+Sujeto B: Son unidades de código que agrupan funciones relacionadas, permitiendo organizar el programa en partes más manejables y reutilizables.
+Sujeto A: Qué es el control de versiones en programación?
+Sujeto B: Es una práctica que permite llevar un registro de los cambios en el código fuente a lo largo del tiempo, facilitando la colaboración y el mantenimiento del software.
+Sujeto A: Qué es una biblioteca en programación?
+Sujeto B: Es un conjunto de funciones y rutinas predefinidas que se pueden utilizar para facilitar el desarrollo de programas, evitando la necesidad de reinventar la rueda.
+Sujeto A: Qué es un API en programación?
+Sujeto B: Es un conjunto de reglas y definiciones que permiten que un software se comunique con otro, facilitando la integración entre sistemas y servicios.
+Sujeto A: Qué es el principio DRY en programación?
+Sujeto B: Es el principio "Do Not Repeat Yourself", que sugiere que no se debe duplicar código, sino reutilizarlo, para mejorar la mantenibilidad y evitar errores.
+Sujeto A: Qué es el principio KISS en programación?
+Sujeto B: Es el principio "Keep It Simple, Stupid", que promueve mantener el diseño y el código lo más simples y claros posible para evitar complejidades innecesarias.
+Sujeto A: Qué es un script en programación?
+Sujeto B: Es un archivo que contiene un conjunto de instrucciones que pueden ser ejecutadas por un intérprete, como en los lenguajes de scripting como Python o JavaScript.
+Sujeto A: Qué es la modularización en programación?
+Sujeto B: Es la práctica de dividir un programa en módulos o partes más pequeñas y manejables, facilitando el mantenimiento y la reutilización del código.
+Sujeto A: Qué es el principio de encapsulamiento en programación orientada a objetos?
+Sujeto B: Es el principio que consiste en ocultar los detalles internos de una clase y exponer solo lo necesario a través de una interfaz pública, protegiendo el estado del objeto.
+Sujeto A: Qué es la sobrecarga de métodos?
+Sujeto B: Es la capacidad de definir varios métodos con el mismo nombre pero con diferentes parámetros, permitiendo que el mismo nombre se utilice para realizar distintas tareas.
+Sujeto A: Qué es la interfaz en programación orientada a objetos?
+Sujeto B: Es una estructura que define un contrato de métodos que una clase debe implementar, pero sin proporcionar la implementación de estos métodos.
+Sujeto A: Qué es el principio de inversión de dependencias en programación?
+Sujeto B: Es un principio que sugiere que las dependencias en un sistema deben invertirse, de modo que las clases de alto nivel no dependan de clases de bajo nivel, sino de abstracciones.
+Sujeto A: Qué es un patrón de diseño en programación?
+Sujeto B: Es una solución reutilizable y estandarizada a un problema común en el desarrollo de software, como el patrón Singleton o el patrón de diseño Factory.
+Sujeto A: Qué es un índice en bases de datos?
+Sujeto B: Es una estructura que mejora la velocidad de las operaciones de búsqueda en una base de datos, permitiendo acceder rápidamente a los registros sin tener que recorrer toda la tabla.
+Sujeto A: Qué es la programación orientada a eventos?
+Sujeto B: Es un paradigma en el que el flujo del programa se controla mediante eventos o acciones, como clics de un usuario o respuestas de un servidor, comúnmente usado en aplicaciones de interfaz gráfica.
+Sujeto A: Qué es una consulta SQL?
+Sujeto B: Es una instrucción escrita en lenguaje SQL que se utiliza para realizar operaciones sobre una base de datos, como seleccionar, insertar, actualizar o eliminar datos.
+Sujeto A: Qué es el patrón MVC en desarrollo de software?
+Sujeto B: Es un patrón de diseño que divide una aplicación en tres componentes principales: Modelo (datos), Vista (interfaz de usuario) y Controlador (lógica que maneja las interacciones), promoviendo la separación de responsabilidades.
+Sujeto A: Qué es el principio de responsabilidad única en programación?
+Sujeto B: Es un principio que establece que una clase o función debe tener una única responsabilidad o tarea, lo que facilita la comprensión, el mantenimiento y la reutilización del código.
+Sujeto A: Qué es el análisis de complejidad algorítmica?
+Sujeto B: Es el estudio de los recursos que consume un algoritmo, como el tiempo o la memoria, en función del tamaño de los datos de entrada, lo que ayuda a evaluar su eficiencia.
+Sujeto A: Qué es un contenedor en programación?
+Sujeto B: Es una estructura de datos que almacena elementos de manera organizada, como listas, pilas, colas o árboles, permitiendo gestionar colecciones de datos de forma eficiente.
+Sujeto A: Qué es la programación asíncrona?
+Sujeto B: Es un enfoque que permite que ciertas tareas se ejecuten en paralelo sin bloquear el flujo principal del programa, mejorando el rendimiento, especialmente en operaciones de I/O.
+Sujeto A: Qué es la serialización en programación?
+Sujeto B: Es el proceso de convertir un objeto en un formato que se pueda almacenar o transmitir, como convertir un objeto en un archivo JSON o XML.
+Sujeto A: Qué es la deserialización?
+Sujeto B: Es el proceso opuesto a la serialización, en el que un objeto almacenado o transmitido se convierte nuevamente en su formato original para ser utilizado en el programa.
+Sujeto A: Qué es el control de flujo en programación?
+Sujeto B: Es la forma en que se dirige la ejecución del programa, usando estructuras como condicionales, bucles y funciones para determinar qué instrucciones se ejecutan en qué orden.
+Sujeto A: Qué es un archivo binario?
+Sujeto B: Es un archivo que contiene datos en un formato que no es legible directamente por los humanos, como imágenes o archivos ejecutables, a diferencia de los archivos de texto.
+Sujeto A: Qué es un sistema de gestión de bases de datos (DBMS)?
+Sujeto B: Es un software que permite a los usuarios crear, gestionar y manipular bases de datos, ofreciendo herramientas para la consulta, almacenamiento y actualización de datos.
+Sujeto A: Qué es un script de inicialización?
+Sujeto B: Es un conjunto de comandos que se ejecutan automáticamente al iniciar un sistema o aplicación, configurando los parámetros o preparando el entorno necesario.
+Sujeto A: Qué es una función recursiva?
+Sujeto B: Es una función que se llama a sí misma para resolver un problema en pasos más pequeños, generalmente utilizada en algoritmos que pueden dividirse en subproblemas similares.
+Sujeto A: Qué es un ciclo infinito?
+Sujeto B: Es un ciclo que nunca termina, ya que su condición de salida nunca se cumple, lo que puede llevar a que el programa se quede colgado o consuma recursos indefinidamente.
+Sujeto A: Qué es el manejo de excepciones en programación?
+Sujeto B: Es un mecanismo que permite capturar y manejar errores o excepciones durante la ejecución del programa para evitar que este se detenga de manera inesperada.
+Sujeto A: Qué es un lenguaje de programación compilado?
+Sujeto B: Es un lenguaje cuyo código fuente se traduce a código máquina de una sola vez por un compilador antes de ejecutarse, lo que generalmente hace que el programa sea más rápido.
+Sujeto A: Qué es un lenguaje de programación interpretado?
+Sujeto B: Es un lenguaje cuyo código fuente se ejecuta línea por línea por un intérprete, lo que permite ejecutar el código sin necesidad de compilarlo primero.
+Sujeto A: Qué es un IDE (entorno de desarrollo integrado)?
+Sujeto B: Es una aplicación que proporciona herramientas para escribir, compilar y depurar código, facilitando el desarrollo de software al integrar varias funciones en un solo lugar.
+Sujeto A: Qué es la memoria dinámica?
+Sujeto B: Es una técnica de asignación de memoria durante la ejecución del programa, en la que se puede solicitar y liberar memoria según sea necesario, como en el uso de malloc en C.
+Sujeto A: Qué es un puntero?
+Sujeto B: Es una variable que almacena la dirección de memoria de otro dato, permitiendo acceder y manipular ese dato indirectamente.
+Sujeto A: Qué es un archivo de texto?
+Sujeto B: Es un archivo que contiene solo caracteres legibles por el ser humano, sin formato binario, y que generalmente se utiliza para almacenar datos como configuraciones o información simple.
+Sujeto A: Qué es un algoritmo?
+Sujeto B: Es un conjunto de pasos ordenados y definidos para resolver un problema o realizar una tarea específica, de manera que se pueda ejecutar de forma sistemática.
+Sujeto A: Qué es la programación orientada a objetos (OOP)?
+Sujeto B: Es un paradigma de programación basado en la creación de objetos que contienen tanto datos como métodos que operan sobre esos datos, promoviendo la reutilización y modularidad del código.
+Sujeto A: Qué es el tiempo de ejecución?
+Sujeto B: Es el período durante el cual un programa está en ejecución, desde que se inicia hasta que termina.
+Sujeto A: Qué es el tiempo de compilación?
+Sujeto B: Es el tiempo que se tarda en compilar el código fuente de un programa y convertirlo en código ejecutable, antes de que el programa se ejecute.
+Sujeto A: Qué es un servidor web?
+Sujeto B: Es una aplicación o máquina que almacena y entrega páginas web a los usuarios cuando hacen una solicitud a través de un navegador, utilizando el protocolo HTTP.
+Sujeto A: Qué es una base de datos relacional?
+Sujeto B: Es un tipo de base de datos que organiza los datos en tablas relacionadas entre sí, utilizando claves primarias y foráneas para establecer relaciones entre las tablas.
+Sujeto A: Qué es el principio de cohesión?
+Sujeto B: Es el principio que sugiere que un módulo o clase debe tener una alta cohesión, es decir, que sus componentes estén estrechamente relacionados entre sí y realicen una sola tarea.
+Sujeto A: Qué es el principio de acoplamiento?
+Sujeto B: Es el principio que sugiere que los módulos de un sistema deben estar lo menos acoplados posible, es decir, deben depender lo menos posible unos de otros para facilitar el mantenimiento.
+Sujeto A: Qué es un lenguaje de programación de alto nivel?
+Sujeto B: Es un lenguaje que se encuentra más cerca del lenguaje humano y es más abstracto, lo que facilita la programación, a diferencia de los lenguajes de bajo nivel que están más cerca del lenguaje máquina.
+Sujeto A: Qué es la herencia en programación orientada a objetos?
+Sujeto B: Es un mecanismo mediante el cual una clase puede heredar propiedades y comportamientos de otra clase, permitiendo la reutilización de código.
+Sujeto A: Qué es la polimorfismo?
+Sujeto B: Es la capacidad de un objeto o función de tomar muchas formas, lo que permite que un mismo método o función se comporte de diferentes maneras según el contexto.
+Sujeto A: Qué es un contenedor en Docker?
+Sujeto B: Es una unidad ligera de software que empaqueta una aplicación y sus dependencias, permitiendo que se ejecute de manera consistente en cualquier entorno.
+Sujeto A: Qué es un sistema operativo?
+Sujeto B: Es el software que gestiona los recursos de hardware de una computadora, proporcionando servicios para ejecutar aplicaciones y permitir la interacción con el usuario.
+Sujeto A: Qué es la depuración en programación?
+Sujeto B: Es el proceso de identificar y corregir errores o "bugs" en un programa, usando herramientas como depuradores o añadiendo registros para inspeccionar el flujo de ejecución.
+Sujeto A: Que es un dato?
+Sujeto B: Es una representación simbólica de un atributo o característica de una entidad, como un número, una palabra o una imagen, que se utiliza para describir o representar información.
+Sujeto A: Que es informacion?
+Sujeto B: Es el resultado del procesamiento de datos, que proporciona significado, contexto y utilidad a los datos, permitiendo tomar decisiones o realizar acciones.
+Sujeto A: Que es conocimiento?
+Sujeto B: Es la comprensión y la capacidad de aplicar información y experiencias para resolver problemas, tomar decisiones o realizar tareas específicas.
+Sujeto A: Que es la inteligencia?
+Sujeto B: Es la capacidad de aprender, razonar, resolver problemas, comprender ideas complejas, adaptarse a nuevas situaciones y utilizar el conocimiento de manera efectiva.
+Sujeto A: que es un cientifico de datos?
+Sujeto B: Es un profesional que utiliza técnicas y herramientas de análisis de datos para extraer información, identificar patrones y tomar decisiones basadas en evidencia.
+Sujeto A: Que es un modelo de aprendizaje automático?
+Sujeto B: Es un algoritmo o sistema que aprende de los datos para realizar tareas específicas, como predecir resultados, clasificar información o tomar decisiones.
+Sujeto A: Que es un algoritmo de clasificacion?
+Sujeto B: Es un algoritmo que asigna datos a categorias predefinidas, como clasificar correos entre spam y no spam.
+Sujeto A: Que es un algoritmo de regresion?
+Sujeto B: Es un algoritmo que predice valores continuos a partir de datos, como predecir el precio de una casa en función de sus características.
+Sujeto A: Que es un algoritmo de agrupamiento?
+Sujeto B: Es un algoritmo que agrupa datos en clusters o grupos basados en similitudes, como agrupar clientes en segmentos de mercado.
+Sujeto A: Que es un algoritmo de recomendacion?
+Sujeto B: Es un algoritmo que sugiere productos, servicios o contenido a los usuarios en función de sus preferencias, historial o comportamiento.
+Sujeto A: Que es un algoritmo de deteccion de anomalias?
+Sujeto B: Es un algoritmo que identifica patrones inusuales o atípicos en los datos, como transacciones fraudulentas o comportamientos anómalos.
+Sujeto A: Que es un algoritmo de procesamiento de lenguaje natural?
+Sujeto B: Es un algoritmo que permite a las computadoras entender, interpretar y generar lenguaje humano, como traducción automática o análisis de sentimientos.
+Sujeto A: Que es un algoritmo de vision por computadora?
+Sujeto B: Es un algoritmo que permite a las computadoras interpretar y analizar imágenes y videos, como reconocimiento facial o detección de objetos.
+Sujeto A: Que es un algoritmo genetico?
+Sujeto B: Es un algoritmo inspirado en la evolución biológica que utiliza conceptos como selección natural, mutación y recombinación para resolver problemas de optimización.
+Sujeto A: Que es un algoritmo de refuerzo?
+Sujeto B: Es un algoritmo de aprendizaje automático que entrena a un agente para tomar decisiones en un entorno, maximizando una recompensa a lo largo del tiempo.
+Sujeto A: Que es un algoritmo de aprendizaje profundo?
+Sujeto B: Es un algoritmo de aprendizaje automático que utiliza redes neuronales con múltiples capas para aprender representaciones jerárquicas de los datos.
+Sujeto A: que es una computadora?
+Sujeto B: Es una máquina electrónica que procesa datos y realiza cálculos de manera automática, utilizando componentes como la CPU, la memoria y los dispositivos de entrada y salida.
+Sujeto A: Que es un sistema operativo?
+Sujeto B: Es el software que gestiona los recursos de hardware de una computadora, proporcionando servicios para ejecutar aplicaciones y permitir la interacción con el usuario.
