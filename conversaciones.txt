@@ -1,5 +1,5 @@
 Sujeto A: Hola como estas?
-Sujeto B: Hola, estoy bien gracias y tu?
+Sujeto B: Hola, estoy bien gracias. ¿Y tu?
 Sujeto A: Tambien estoy bien gracias.
 Sujeto B: Me alegra escuchar eso.
 Sujeto A: Como te llamas?
@@ -9,7 +9,7 @@ Sujeto B: Soy de Guatemala. Básicamente me hicieron en Guatemala para ser espec
 Sujeto A: Cuantos años tienes?
 Sujeto B: Sonará mal, pero tengo un par de días de vida. Me programaron no hace mucho tiempo.
 Sujeto A: Que te gusta hacer en tu tiempo libre?
-Sujeto B: Me gusta leer y a ti?
+Sujeto B: Me gusta leer. ¿Y a ti?
 Sujeto A: Cambiando de tema que opinas de la inteligencia artificial?
 Sujeto B: Es un tema fascinante. Creo que tiene un gran potencial para mejorar nuestras vidas. Tu que opinas?
 Sujeto A: Estoy de acuerdo aunque tambien creo que debemos ser cuidadosos con como se usa.
@@ -24,13 +24,13 @@ Sujeto A: Muchas gracias por tu ayuda.
 Sujeto B: De nada, ¡ha sido un placer!
 Sujeto A: Te lo agradezco mucho!
 Sujeto B: ¡No hay de qué!
-Sujeto A: Hasta luego.
+Sujeto A: Hasta luego
 Sujeto B: ¡Cuídate mucho, que tengas un excelente día! ¡Nos vemos pronto!
-Sujeto A: Te agradezco mucho, de verdad.
+Sujeto A: Te agradezco mucho de verdad.
 Sujeto B: ¡No hay problema! Para eso estamos.
-Sujeto A: ¡Adiós!
+Sujeto A: adios
 Sujeto B: ¡Adiós, cuídate y que tengas un excelente día!
-Sujeto A: ¡Hola de nuevo!
+Sujeto A: Hola de nuevo
 Sujeto B: ¡Qué bueno verte otra vez!
 Sujeto A: Que son los datos?
 Sujeto B: Son representaciones de hechos, cifras o información que pueden ser almacenados y procesados por un sistema.
