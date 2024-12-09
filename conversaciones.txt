@@ -420,7 +420,6 @@ Sujeto A: Que es un sistema operativo?
 Sujeto B: Es el software que gestiona los recursos de hardware de una computadora proporcionando servicios para ejecutar aplicaciones y permitir la interaccion con el usuario.
 Sujeto A: Que es la depuracion en programacion?
 Sujeto B: Es el proceso de identificar y corregir errores o "bugs" en un programa usando herramientas como depuradores o añadiendo registros para inspeccionar el flujo de ejecucion.
-Sujeto B: Es una representación simbólica de un atributo o característica de una entidad, como un número, una palabra o una imagen, que se utiliza para describir o representar información.
 Sujeto A: Que es informacion?
 Sujeto B: Es el resultado del procesamiento de datos, que proporciona significado, contexto y utilidad a los datos, permitiendo tomar decisiones o realizar acciones.
 Sujeto A: Que es conocimiento?
@@ -511,22 +510,16 @@ Sujeto A: Podrias darme un reto facil para empezar?
 Sujeto B: ¡Claro! Escribe una funcion que tome una cadena y devuelva cuantas vocales tiene.
 Sujeto A: Tienes algun reto intermedio?
 Sujeto B: Si escribe una funcion que tome dos listas y devuelva una nueva lista con los elementos comunes entre ambas sin duplicados.
-Sujeto A: Perfecto eso suena interesante!
 Sujeto A: Que puedo hacer con diccionarios?
 Sujeto B: Escribe una funcion que tome un diccionario y devuelva una lista de las claves cuyos valores son mayores a un numero dado.
-Sujeto A: Lo intentare ahora mismo!
 Sujeto A: Algun reto relacionado con cadenas?
 Sujeto B: Si intenta escribir una funcion que verifique si una cadena es un palindromo.
-Sujeto A: Eso es genial voy a probar!
 Sujeto A: Necesito algo mas desafiante tienes algo?
 Sujeto B: Por supuesto Escribe una funcion que reciba una lista de cadenas y las agrupe por su longitud en un diccionario.
-Sujeto A: Que reto tan interesante! Gracias!
 Sujeto A: Como puedo practicar condicionales?
 Sujeto B: Crea una funcion que determine si un año es bisiesto o no.
-Sujeto A: Genial! Esa parece una buena practica.
 Sujeto A: Dame un reto con bucles por favor.
 Sujeto B: Crea un programa que imprima una tabla de multiplicar hasta un numero especificado.
-Sujeto A: Eso parece util para practicar bucles!
 Sujeto A: Que son las funciones de flecha en JavaScript?
 Sujeto B: Son una forma compacta de escribir funciones en JavaScript. Usan la sintaxis () => {} y no tienen su propio contexto this.
 Sujeto A: Como funcionan las listas en Python?
@@ -703,3 +696,5 @@ Sujeto A: Que es un valor undefined en JavaScript?
 Sujeto B: Es un valor que indica que una variable ha sido declarada pero no tiene un valor asignado.
 Sujeto A: Que es un valor None en Python?
 Sujeto B: Es un valor especial que representa la ausencia de un valor o un valor nulo.
+Sujeto A: como se define una variable en Python?
+Sujeto B: Usando el nombre de la variable seguido de un signo igual y el valor que se le asignara.
