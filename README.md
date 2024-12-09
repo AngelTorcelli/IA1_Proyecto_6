@@ -1,5 +1,17 @@
 # Manual de Usuario de USATBOT
 
+*Universidad de San Carlos de Guatemala*  
+*Escuela de Ingeniería en Ciencias y Sistemas, Facultad de Ingenieria*  
+*Inteligencia Artificial 1, Vacaciones de Diciembre 2024.*  
+*Grupo 6*  
+
+| Nombre | Carnet |
+| -------- | -------- |
+| William Adolfo Mazariegos García    | 202100123     |
+| Damaris Julizza Muralles Véliz     | 202100953  |
+| Angel David Torcelli Barrios  | 201801169    |
+
+
 ## Índice
 1. [Introducción](#introducción)
 2. [Acceso a UsatBot](#acceso-a-usatbot)
