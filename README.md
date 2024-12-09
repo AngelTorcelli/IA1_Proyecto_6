@@ -5,7 +5,7 @@
 2. [Acceso a UsatBot](#acceso-a-usatbot)
 3. [Uso de UsatBot](#uso-de-usatbot)
     1. [¿Cómo enviar tu mensaje?](#1-enviar-un-mensaje)
-    2. [¿Cómo obtines una respuesta?](#2-obten-respuestas)
+    2. [¿Cómo obtienes una respuesta?](#2-obten-respuestas)
     3. [¿Qué tipo de preguntas puedes hacer a UsatBot?](#3-preguntas-que-puedes-hacer)
 
 4. [Características](#características)
@@ -17,11 +17,19 @@
 
 ## Acceso a UsatBot
 
-1. **Acceso:** [Haz clik aquí](enlace del chat).
+1. **Acceso:** [Haz clik aquí](https://angeltorcelli.github.io/IA1_Proyecto_6/).
 
-2. **Interfaz de usuario:** Al entrar al enlace anterior, verás un mensaje de bienvenida y luego una ventana de chat donde podrás comenzar a interactuar con el chatbot.
+2. **Interfaz inicial:** Al entrar al enlace anterior, verás un mensaje de bienvenida.
 
 ![Inicio de UsatBot](/images/interfaz_inicio.png)
+
+3. **Chat:** Después del mensaje de bienvenida, podrás ver el área de chat. Sin embargo, espera un momento, no podrás interactuar con la IA de inmediato; primero, el modelo debe completarse el entrenamiento.
+
+![Inicio de Entrenamiento](/images/interfaz_entrenamiento.png)
+
+4. **Finalizacion de entrenamiento:** Una vez que veas el mensaje de que el modelo ha sido entrenado, podrás comenzar a conversar.
+
+![Fin de Entrenamiento](/images/interfaz_entrenado.png)
 
 ## Uso de UsatBot
 
@@ -51,6 +59,14 @@ UsatBot está diseñado para comprender preguntas simples y proporcionar respues
 También es capaz de mantener una conversación sencilla.
 
 Puede haber ocaciones en que UsatBot no comprenda lo que preguntas debido a lo anterior.
+
+UsatBot está diseñado para comprender preguntas simples y proporcionar respuestas basadas en información básica.
+
+También es capaz de mantener una conversación sencilla.
+
+Sin embargo, en ocasiones, UsatBot puede no entender completamente lo que preguntas, ya que su capacidad está en una etapa inicial. 
+
+Esto se traduce en conversaciones muy simples, como saludos, agradecimientos, así como algunas respuestas sobre él mismo. También puede ofrecer retos sencillos de programación básica, responder preguntas sobre conceptos de programación en Python y JavaScript. Dado que la IA aún está en desarrollo, es posible que se confunda en algunos casos.
 
 ## Características
 
