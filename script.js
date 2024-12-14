@@ -1,23 +1,24 @@
+let model; 
+async function loadModel() {
+    const loadingMsg = document.getElementById("loading-msg");
+    const modelPath = './Modelo/usatbot.json'; 
 
-const model = tf.sequential();
-model.add(tf.layers.dense({ units: targetData[0].length, inputShape: [keywords.length], activation: 'softmax' })); // Ajuste a targetData
-model.compile({ loss: 'categoricalCrossentropy', optimizer: 'adam', metrics: ['accuracy'] });
+    try {
+        loadingMsg.textContent = "Cargando modelo... ⌛";
 
-console.log("Tamaño de trainingData:", trainingData.length);
-console.log("Tamaño de targetData:", targetData.length);
-if (trainingData.length !== targetData.length) {
-    throw new Error("Error: Las longitudes de trainingData y targetData no coinciden. Deteniendo ejecución.");
-}
+        model = await tf.loadLayersModel(modelPath);
 
-const trainingTensor = tf.tensor2d(trainingData);
-const targetTensor = tf.tensor2d(targetData);
+        loadingMsg.textContent = "Modelo cargado ✅";
+        loadingMsg.style.color = "green";
 
-async function trainModel() {
-    console.log('Entrenando el modelo...');
-    document.getElementById("loading-msg").textContent = "Entrenando el modelo... ⌛";
-    await model.fit(trainingTensor, targetTensor, { epochs: 500 });
-    console.log('Entrenamiento completado.');
-    document.getElementById("loading-msg").textContent = "Entrenamiento completado ✔️";
+        console.log("Modelo cargado desde la carpeta Modelo.");
+    } catch (error) {
+        console.error("Error al cargar el modelo:", error);
+
+        loadingMsg.textContent = "Error: Modelo no encontrado ❌";
+        loadingMsg.style.color = "red";
+        throw new Error("Modelo no cargado."); 
+    }
 }
 
 function encodeInput(input) {
@@ -64,7 +65,6 @@ async function processInput(input) {
     return response;
 }
 
-
 function typeEffect(element, text, delay = 50) {
     if (typeof text !== "string") {
         console.error("Error: Expected a string, but received:", text);
@@ -84,14 +84,22 @@ function typeEffect(element, text, delay = 50) {
     });
 }
 
-
 document.addEventListener("DOMContentLoaded", async () => {
     const userInput = document.getElementById("user-input");
     const sendButton = document.getElementById("send-button");
     const messages = document.getElementById("messages");
 
-    await trainModel(); 
+    userInput.disabled = true;
+    sendButton.disabled = true;
 
+    try {
+        await loadModel(); // para cargar modelo
+        userInput.disabled = false;
+        sendButton.disabled = false;
+    } catch (error) {
+        console.error("No se pudo cargar el modelo:", error);
+        return; 
+    }
 
     function sendMessage(text, sender, typing = false) {
         const message = document.createElement("div");
@@ -112,7 +120,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const botReply = await processInput(userText);
             userInput.value = "";
             await typeEffect(botMessageElement, botReply); 
-            
         }
     });
 
