@@ -115,24 +115,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     sendButton.addEventListener("click", async () => {
         const userText = userInput.value.trim();
 
-        if (userText) {
-            // Detectar el idioma del texto ingresado
+        if (userText) {            
             let idioma = getLanguage(userText);
             console.log("Idioma detectado:", idioma);
 
-            // Mostrar el mensaje original del usuario en el chat
             sendMessage(userText, "user");
 
-            // Determinar si se debe procesar directamente o traducir
+            //Se determina si se debe procesar directamente o traducir
             let textoProcesado = userText;
+            let botReply = "";
+            const botMessageElement = sendMessage("", "bot", true);
+            
             if (idioma !== "es") {
-                textoProcesado = await traducir(userText);
-                console.log("Traducción:", textoProcesado);
+                textoProcesado = await traducir(userText,"en","es");                
+                textoProcesado = textoProcesado.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                console.log("Traducción:", textoProcesado);                
+                //procesa la entrada del usuario y obtiene la respuesta del bot en español, despues se traduce a ingles de nuevo
+                botReply = await processInput(textoProcesado);
+                const botReplyEs = await traducir(botReply,"es","en");
+                //console.log("Respuesta traducida:", botReplyEs);
+                userInput.value = "";
+                await typeEffect(botMessageElement, botReplyEs);
+                return;
             }
 
-            // Procesar el texto y generar la respuesta del bot
-            const botMessageElement = sendMessage("", "bot", true);
-            const botReply = await processInput(textoProcesado);
+            botReply = await processInput(textoProcesado);
             userInput.value = "";
             await typeEffect(botMessageElement, botReply);
         }
@@ -153,9 +160,9 @@ function scrollToBottom() {
 }
 
 
-async function traducir(texto) {
+async function traducir(texto,idiomaActual,idiomaDestino) {
     try {
-        const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=en|es`);
+        const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=${idiomaActual}|${idiomaDestino}`);
         const data = await response.json();
         return data.responseData.translatedText;
     } catch (error) {
