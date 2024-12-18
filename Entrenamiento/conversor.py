@@ -3,8 +3,12 @@ from itertools import combinations
 import os
 import contractions
 
+# Función para generar n-gramas
+def generate_ngrams(words, n):
+    return [" ".join(words[i:i+n]) for i in range(len(words)-n+1)]
+
 # Leer el archivo de conversaciones
-with open("Pruebas_Fase2/prueba_conversaciones.txt", "r", encoding="utf-8") as file:
+with open("data1.txt", "r", encoding="utf-8") as file:
     lines = file.readlines()
 
 training_data = []
@@ -55,20 +59,24 @@ for line in lines:
 # Generar respuestas
 responses = [" ".join(pair[1].split()) for pair in conversation_pairs]
 
-# Generar palabras clave y bigramas
+
+
+n = 3  # Cambiar a 3 para trigramas, 4 para cuatrogramas, etc.
 for question, _ in conversation_pairs:
     words = question.lower().split()
     keywords.update(words)  # Unigramas
-    keywords.update([" ".join(combo) for combo in combinations(words, 2)])  # Bigramas
+    for i in range(2, n + 1):  # Agrega bigramas, trigramas, etc.
+        keywords.update(generate_ngrams(words, i))
 
 keywords = list(sorted(keywords))
 
 # Codificar mensajes con unigramas y bigramas
 def encode_message(message, keywords):
     words = message.lower().split()
-    bigrams = [" ".join(combo) for combo in combinations(words, 2)]
-    all_terms = words + bigrams
-    encoding = [1 if term in all_terms else 0 for term in keywords]
+    all_ngrams = []
+    for i in range(1, n + 1):  # Incluye unigramas, bigramas, trigramas, etc.
+        all_ngrams.extend(generate_ngrams(words, i))
+    encoding = [1 if term in all_ngrams else 0 for term in keywords]
     return encoding
 
 # Generar datos de entrenamiento

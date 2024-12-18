@@ -49,9 +49,6 @@ function decodeOutput(output) {
     console.log("Índice de mayor probabilidad:", maxIndex);
     //console.log("Predicciones:", predictions);
 
-    if (predictions[maxIndex] < 0.05) {
-        return "Lo siento, no entiendo la pregunta.";
-    }
     const response = targetResponses[maxIndex];
     console.log("Respuesta:", response);
     return response;
@@ -112,6 +109,49 @@ document.addEventListener("DOMContentLoaded", async () => {
         return message;
     }
 
+    const contractionsDict = {
+        "i'm": "i am",
+        "you're": "you are",
+        "he's": "he is",
+        "she's": "she is",
+        "it's": "it is",
+        "we're": "we are",
+        "they're": "they are",
+        "i've": "i have",
+        "you've": "you have",
+        "we've": "we have",
+        "they've": "they have",
+        "i'd": "i would",
+        "you'd": "you would",
+        "he'd": "he would",
+        "she'd": "she would",
+        "we'd": "we would",
+        "they'd": "they would",
+        "don't": "do not",
+        "doesn't": "does not",
+        "can't": "cannot",
+        "won't": "will not",
+        "isn't": "is not",
+        "aren't": "are not",
+        "wasn't": "was not",
+        "weren't": "were not",
+        "hasn't": "has not",
+        "haven't": "have not",
+        "hadn't": "had not",
+
+    };
+
+    //función para expandir las contracciones en el texto
+    function expandContractions(text) {
+        // Usamos una expresión regular para buscar todas las contracciones
+        return text.replace(/\b(?:i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|don't|doesn't|can't|won't|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't)\b/gi, function(match) {            
+            return contractionsDict[match.toLowerCase()] || match;
+        });
+    }
+
+
+
+
     sendButton.addEventListener("click", async () => {
         const userText = userInput.value.trim();
 
@@ -125,22 +165,32 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // Determinar si se debe procesar directamente o traducir
             let texto_usuario = userText;
-            if (idioma == "es") {
-                texto_usuario = await traducir(userText, "es", "en");
-                console.log("Texto traducido:", texto_usuario);
+            // if (idioma == "es") {
+            //     texto_usuario = await traducir(userText, "es", "en");
+            //     console.log("Texto traducido:", texto_usuario);
+            // }
+            let botReply = "";
+            const botMessageElement = sendMessage("", "bot", true);
+            
+            if (idioma === "es") {
+                textoProcesado = await traducir(userText,"es","en");                
+                textoProcesado = textoProcesado.toLowerCase().replace(/[?|¿|!|¡]/g, "");
+                console.log("Traducción de español a ingles :", textoProcesado);                
+                //procesa la entrada del usuario y obtiene la respuesta del bot en español, despues se traduce a ingles de nuevo
+                botReply = await processInput(textoProcesado);
+                const botReplyEs = await traducir(botReply,"en","es");
+                //console.log("Respuesta traducida:", botReplyEs);
+                userInput.value = "";
+                await typeEffect(botMessageElement, botReplyEs);
+                return;
             }
 
-            // Procesar el texto y generar la respuesta del bot
-            const botMessageElement = sendMessage("", "bot", true);
-            const botReply = await processInput(texto_usuario);
-            let traduccionbot = botReply;
-            if (idioma == "es") {
-                 traduccionbot= await traducir(botReply, "en", "es");
-            }
-            let respuestabot= idioma == "es" ? traduccionbot : botReply;
-            console.log("Respuesta del bot:", respuestabot);   
+            textoProcesado = expandContractions(userText.toLowerCase());
+            console.log("Texto procesado:", textoProcesado.replace(/[?|¿|!|¡]/g, ""));
+            //quitar signos de preguntas y exclamaciones
+            botReply = await processInput(textoProcesado.replace(/[?|¿|!|¡]/g, ""));
             userInput.value = "";
-            await typeEffect(botMessageElement, respuestabot);
+            await typeEffect(botMessageElement, botReply);
         }
     });
 
