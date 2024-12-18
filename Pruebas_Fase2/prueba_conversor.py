@@ -1,10 +1,9 @@
 import re
 from itertools import combinations
 import os
-import contractions
 
 # Leer el archivo de conversaciones
-with open("Pruebas_Fase2/prueba_conversaciones.txt", "r", encoding="utf-8") as file:
+with open("Pruebas_Fase2/prueba_procesada.txt", "r", encoding="utf-8") as file:
     lines = file.readlines()
 
 training_data = []
@@ -24,7 +23,6 @@ sujeto_b_count = sum(1 for line in lines if line.startswith("Sujeto B:"))
 if sujeto_a_count != sujeto_b_count:
     print(f"Error: Hay un desbalance en las líneas.")
     print(f"Sujeto A: {sujeto_a_count} mensajes, Sujeto B: {sujeto_b_count} mensajes.")
-    #si existe el archivo chatbot_data.js, lo elimina
     if os.path.exists("chatbot_data.js"):
         os.remove("chatbot_data.js")
     exit()
@@ -35,15 +33,6 @@ for line in lines:
     if match:
         user, message = match.groups()
         
-        if user == "Sujeto A":
-            #reemplazar caracteres especiales como puntos y signos de interrogación
-            message = message.lower().replace(".", "").replace("?", "").replace("¿", "").replace("¡", "").replace("!", "").replace("'", "").replace("\"", "")
-            #reemplazar contracciones
-            message = contractions.fix(message)
-            #print(f"Sujeto A: {message}")
-        if user == "Sujeto B":
-            #reemplazar contracciones
-            message = contractions.fix(message)            
         if current_user == "Sujeto A" and user == "Sujeto B":
             conversation_pairs.append((last_message, message))  # Añadir pares de conversación
         elif current_user == "Sujeto B" and user == "Sujeto A":
@@ -55,19 +44,21 @@ for line in lines:
 # Generar respuestas
 responses = [" ".join(pair[1].split()) for pair in conversation_pairs]
 
-# Generar palabras clave y bigramas
+# Generar palabras clave, bigramas y trigramas
 for question, _ in conversation_pairs:
     words = question.lower().split()
     keywords.update(words)  # Unigramas
     keywords.update([" ".join(combo) for combo in combinations(words, 2)])  # Bigramas
+    keywords.update([" ".join(words[i:i+3]) for i in range(len(words) - 2)])  # Trigramas
 
 keywords = list(sorted(keywords))
 
-# Codificar mensajes con unigramas y bigramas
+# Codificar mensajes con unigramas, bigramas y trigramas
 def encode_message(message, keywords):
     words = message.lower().split()
     bigrams = [" ".join(combo) for combo in combinations(words, 2)]
-    all_terms = words + bigrams
+    trigrams = [" ".join(words[i:i+3]) for i in range(len(words) - 2)]
+    all_terms = words + bigrams + trigrams
     encoding = [1 if term in all_terms else 0 for term in keywords]
     return encoding
 
@@ -115,7 +106,7 @@ with open("chatbot_data.js", "w", encoding="utf-8") as js_file:
     js_file.write('// Esta variable contiene las respuestas reales que el chatbot devolverá cuando se le haga una pregunta.\n')
     js_file.write("const targetResponses = [\n")
     for response in responses:
-        js_file.write(f"\"{response}\",\n")
+        js_file.write(f"    \"{response}\",\n")
     js_file.write("];\n")
 
     print("Archivo chatbot_data.js generado con éxito.")

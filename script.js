@@ -115,33 +115,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     sendButton.addEventListener("click", async () => {
         const userText = userInput.value.trim();
 
-        if (userText) {            
+        if (userText) {
+            // Detectar el idioma del texto ingresado
             let idioma = getLanguage(userText);
             console.log("Idioma detectado:", idioma);
 
+            // Mostrar el mensaje original del usuario en el chat
             sendMessage(userText, "user");
 
-            //Se determina si se debe procesar directamente o traducir
-            let textoProcesado = userText;
-            let botReply = "";
-            const botMessageElement = sendMessage("", "bot", true);
-            
-            if (idioma !== "es") {
-                textoProcesado = await traducir(userText,"en","es");                
-                textoProcesado = textoProcesado.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                console.log("Traducción:", textoProcesado);                
-                //procesa la entrada del usuario y obtiene la respuesta del bot en español, despues se traduce a ingles de nuevo
-                botReply = await processInput(textoProcesado);
-                const botReplyEs = await traducir(botReply,"es","en");
-                //console.log("Respuesta traducida:", botReplyEs);
-                userInput.value = "";
-                await typeEffect(botMessageElement, botReplyEs);
-                return;
+            // Determinar si se debe procesar directamente o traducir
+            let texto_usuario = userText;
+            if (idioma == "es") {
+                texto_usuario = await traducir(userText, "es", "en");
+                console.log("Texto traducido:", texto_usuario);
             }
 
-            botReply = await processInput(textoProcesado);
+            // Procesar el texto y generar la respuesta del bot
+            const botMessageElement = sendMessage("", "bot", true);
+            const botReply = await processInput(texto_usuario);
+            let traduccionbot = botReply;
+            if (idioma == "es") {
+                 traduccionbot= await traducir(botReply, "en", "es");
+            }
+            let respuestabot= idioma == "es" ? traduccionbot : botReply;
+            console.log("Respuesta del bot:", respuestabot);   
             userInput.value = "";
-            await typeEffect(botMessageElement, botReply);
+            await typeEffect(botMessageElement, respuestabot);
         }
     });
 
