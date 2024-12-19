@@ -16,10 +16,28 @@ ___
 ## Índice
 1. [Introducción](#introducción)
 2. [Componentes principales](#componentes)
-    1. [Modelo de Inteligencia Artificial](#modelo)
-    2. [Generación de datos de entrenamiento](#datos)
-    3. [Interfaz gráfica](#interfaz)
+    1.[Modelo de inteligencia artificial](#modelo)
+    2.[Carga del Modelo en el Chatbot Usatbot](#carga)
+    3.[Generación de datos de entrenamiento a partir de conversaciones](#generacion)
+3. [Modelo de inteligencia artificial](#modelo)
+    1.[Uso de TensorFlow.js](#tensorflow)
+    2.[Flujo de trabajo del chatbot](#flujo)
+    3.[Modularidad del sistema](#modularidad)
+    4.[Proceso resumido](#proceso)
+4. [Generación de datos de entrenamiento a partir de conversaciones](#generacion)
+    1.[Importación de librerías](#librerias)
+    2.[Función para generar n-gramas](#ngramas)
+    3.[Lectura del archivo de conversaciones](#lectura)
+    4.[Validación de balance entre sujetos](#balance)
+    5.[Procesamiento del archivo línea por línea](#procesamiento)
+    6.[Generación de palabras clave (keywords)](#keywords)
+    7.[Codificación de mensajes](#codificacion)
+    8.[Generación de datos de entrenamiento y objetivo](#entrenamiento)
+    9.[Validación de los datos generados](#validacion)
+    10.[Guardado de datos en un archivo JavaScript](#guardado)
+    11.[Mensajes de éxito](#exito)
 
+---
 
 ## Introducción <a id="introducción"></a>
 
@@ -29,170 +47,237 @@ El proyecto consiste en el desarrollo de un chatbot en español utilizando Tenso
 - Responde con frases predefinidas: Basadas en una correspondencia probabilística de las entradas con respuestas entrenadas.
 - Interfaz gráfica interactiva: Permite la comunicación con el usuario mediante un diseño amigable.
 
+---
+
 ##  Componentes principales <a id="componentes"></a>
 ### Modelo de inteligencia artificial <a id="modelo"></a>
 El modelo es un perceptrón multicapa (MLP) desarrollado con TensorFlow.js. Este recibe vectores de entrada (codificaciones de palabras clave) y produce salidas categóricas que corresponden a respuestas predefinidas.
 
-Para el presente proyecto se utilizó un modelo secuencial con una capa densa de salida con activación softmax (para obtener probabilidades de las respuestas). La función de pérdida utilizada fue la entropía cruzada categórica para problemas de clasificación multiclase y el optimizador Adam para la actualización de los pesos del modelo. <br>
 
-A continuación, se muestra el código de la definición del modelo:
-```javascript
-const model = tf.sequential();
-model.add(tf.layers.dense({ 
-    units: targetData[0].length, 
-    inputShape: [keywords.length], 
-    activation: 'softmax' 
-}));
-model.compile({ 
-    loss: 'categoricalCrossentropy', 
-    optimizer: 'adam', 
-    metrics: ['accuracy'] 
-});
+### Carga del Modelo en el Chatbot Usatbot <a id="carga"></a>
 
-```
-Para el entrenamiento del modelo se utilizó el método fit de TensorFlow.js, el cual recibe tensores de entrada y salida, así como un objeto de configuración con el número de epochs, que consisten en iteraciones completas del conjunto de datos de entrenamiento.
-```javascript
-async function trainModel() {
-    await model.fit(trainingTensor, targetTensor, { epochs: 500 });
-}
-```
+El proceso que permite que el modelo de aprendizaje automático se cargue de inmediato en nuestro chatbot se basa en el uso de **TensorFlow.js** y un flujo bien estructurado entre entrenamiento y ejecución. A continuación, se detallan los pasos y fundamentos de este proceso:
 
-Para el procesamiento de entradas de texto, se utilizó la función encodeInput, que recibe un mensaje y devuelve un tensor de entrada para el modelo.
-```javascript	
-function encodeInput(input) {
-    const vector = Array(keywords.length).fill(0);
-    input.toLowerCase().split(" ").forEach(word => {
-        if (keywords.includes(word)) {
-            vector[keywords.indexOf(word)] = 1;
-        }
-    });
-    return tf.tensor2d([vector]);
-}
+#### **1. Uso de TensorFlow.js** <a id="tensorflow"></a>
 
-```
+**TensorFlow.js** es una biblioteca que nos permite entrenar y ejecutar modelos de aprendizaje automático directamente en el navegador. En el caso de nuestro chatbot, aprovechamos dos de sus capacidades principales:
 
-Para la decodificación de las salidas del modelo, se utilizó la función decodeOutput, que recibe un tensor de salida y devuelve la respuesta correspondiente.
-```javascript
-function decodeOutput(output) {
-    const predictions = output.dataSync();
-    const maxIndex = predictions.indexOf(Math.max(...predictions));
-    if (predictions[maxIndex] < 0.05) {
-        return "Lo siento, no entiendo la pregunta.";
-    }
-    return targetResponses[maxIndex];
-}
+- **Cargar modelos preentrenados**:  
+  Mediante la función `tf.loadLayersModel`, cargamos un modelo previamente entrenado desde dos archivos:
+  - `usatbot.json`: contiene la arquitectura y configuración del modelo.
+  - `usatbot.weights.bin`: contiene los pesos entrenados del modelo.
 
-```
-Si la probabilidad más alta es menor a 5%, el chatbot responde que no entiende. De lo contrario, selecciona la respuesta con mayor probabilidad. Esto se hace para evitar respuestas incorrectas o incoherentes.
+- **Ejecución en el cliente**:  
+  Una vez cargados estos archivos, el modelo se inicializa completamente en la memoria del navegador del usuario, lo que elimina la necesidad de un servidor externo para realizar predicciones.
 
-## Generación de datos de entrenamiento <a id="datos"></a>
-Para la generación de datos para entrenar el modelo se utilizó python.
-A partir de un archivo de texto (conversaciones.txt), se procesaron líneas de conversación para crear pares de entrada y salida. Las palabras clave se extrajeron y se generaron vectores binarios que representaron las preguntas.
+#### **2. Flujo de trabajo del chatbot** <a id="flujo"></a>
 
-El archivo de texto tiene el siguiente formato:
-```
-Sujeto A: Hola como estas?
-Sujeto B: Hola, estoy bien gracias. ¿Y tu?
-Sujeto A: Tambien estoy bien gracias.
-Sujeto B: Me alegra escuchar eso.
-Sujeto A: Como te llamas?
-Sujeto B: Me llamo USATBOT.
-```
+Nuestro sistema tiene dos etapas claramente diferenciadas: el **entrenamiento del modelo** y la **carga para inferencia**.
+
+##### **2.1. Entrenamiento del modelo**
+Utilizamos el archivo `Entrenamiento/script_entrenamiento.js` para realizar el entrenamiento del modelo directamente en el navegador:
+
+1. **Entrenamiento**:  
+   El modelo se entrena con los datos proporcionados en las variables `trainingData` y `targetData`. La estructura del modelo y los parámetros de entrenamiento se definen de la siguiente forma:
+   ```javascript
+   const model = tf.sequential();
+   model.add(tf.layers.dense({
+       units: targetData[0].length,
+       inputShape: [keywords.length],
+       activation: 'softmax'
+   }));
+   model.compile({
+       loss: 'categoricalCrossentropy',
+       optimizer: 'adam',
+       metrics: ['accuracy']
+   });
+   ```
+   El entrenamiento se realiza mediante la función `model.fit`, con un número configurable de épocas.
+
+2. **Exportación del modelo**:  
+   Una vez completado el entrenamiento, el modelo se guarda en dos archivos:
+   - `usatbot.json`: define la arquitectura y la configuración del modelo.
+   - `usatbot.weights.bin`: contiene los pesos entrenados del modelo.  
+   Esto se logra con la función:
+   ```javascript
+   await model.save('downloads://usatbot');
+   ```
+   Al ejecutar esta función, el navegador descarga ambos archivos, que posteriormente deben moverse a la carpeta `/Modelo`.
 
 
-Para leer el archivo de texto y extraer las conversaciones, se utilizó el siguiente código en Python:
+##### **2.2. Carga y uso del modelo** <a id="carga_modelo"></a>
+Una vez entrenado el modelo, usamos el archivo `script.js` para cargarlo y ejecutarlo en el navegador del usuario.
+
+1. **Carga del modelo**:  
+   La función `loadModel` se encarga de reconstruir el modelo a partir de los archivos `usatbot.json` y `usatbot.weights.bin` ubicados en la carpeta `/Modelo`. Esto se realiza con el siguiente código:
+   ```javascript
+   const modelPath = './Modelo/usatbot.json';
+   model = await tf.loadLayersModel(modelPath);
+   ```
+   - `tf.loadLayersModel` carga la arquitectura desde el archivo JSON.
+   - Los pesos entrenados se descargan automáticamente desde el archivo BIN asociado.  
+   Al finalizar, el modelo está listo para realizar predicciones.
+
+2. **Preprocesamiento y predicciones**:  
+   El chatbot utiliza funciones específicas para procesar la entrada del usuario, generar predicciones y presentar una respuesta. Por ejemplo:
+   - **Preprocesamiento de entrada**:  
+     La función `encodeInput` convierte el texto ingresado por el usuario en un vector de características que el modelo puede interpretar.
+   - **Decodificación de salida**:  
+     La función `decodeOutput` interpreta las probabilidades generadas por el modelo y selecciona la respuesta más probable.
+
+
+
+#### **3. Modularidad del sistema** <a id="modularidad"></a>
+
+Este diseño modular permite que el entrenamiento y la ejecución estén desacoplados, lo que proporciona las siguientes ventajas:
+
+- **Velocidad**: Una vez entrenado, el modelo está disponible de inmediato para su uso sin necesidad de pasos adicionales.
+- **Flexibilidad**: Podemos ajustar los datos de entrenamiento y reentrenar el modelo solo cuando sea necesario, sin interrumpir el funcionamiento del chatbot.
+- **Ejecución completamente en el cliente**: Todo el procesamiento ocurre en el navegador del usuario, eliminando la necesidad de servidores dedicados para cargar o ejecutar el modelo.
+
+
+#### **4. Proceso resumido** <a id="proceso"></a>
+
+El flujo de trabajo completo es el siguiente:
+
+1. **Entrenamiento del modelo**:
+   - Se utiliza el archivo `Entrenamiento/script_entrenamiento.js`.
+   - Al finalizar, el modelo se guarda en los archivos `usatbot.json` y `usatbot.weights.bin`.
+   - Estos archivos se mueven a la carpeta `/Modelo`.
+
+2. **Carga del modelo para inferencia**:
+   - Se utiliza el archivo `script.js`, que carga el modelo desde `/Modelo` utilizando `tf.loadLayersModel`.
+   - El modelo está disponible para realizar predicciones en el navegador del usuario.
+
+Este enfoque garantiza que el chatbot pueda entrenarse y ajustarse con facilidad mientras sigue siendo rápido y eficiente durante su uso en producción.
+
+### **Generación de datos de entrenamiento a partir de conversaciones** <a id="generacion"></a>
+
+El script `conversor.py` procesa un archivo de texto plano con conversaciones estructuradas para generar datos de entrenamiento y objetivos en formato vectorial. Estos datos son utilizados posteriormente para entrenar el modelo de inteligencia artificial.
+
+
+#### **1. Importación de librerías** <a id="librerias"></a>
+
+El script utiliza las siguientes bibliotecas:
+
+- **re**: Para trabajar con expresiones regulares.
+- **itertools.combinations**: Para generar combinaciones de palabras.
+- **os**: Para operaciones con el sistema de archivos, como eliminar archivos.
+- **contractions**: Para expandir contracciones en el texto, mejorando el procesamiento del lenguaje natural.
+
+
+#### **2. Función para generar n-gramas**   <a id="ngramas"></a>
+
 ```python
-with open("conversaciones.txt", "r", encoding="utf-8") as file:
-    lines = file.readlines()
-
-training_data = []
-target_data = []
-keywords = set()
-responses = []
-conversation_pairs = []
-
-current_user = None
-last_message = None
-
-for line in lines:
-    match = re.match(r"(Sujeto [A-B]): (.+)", line.strip())
-    if match:
-        user, message = match.groups()
-        
-        if current_user == "Sujeto A" and user == "Sujeto B":
-            conversation_pairs.append((last_message, message)) 
-        elif current_user == "Sujeto B" and user == "Sujeto A":
-            pass
-        
-        last_message = message
-        
-        current_user = user
-
-responses = [" ".join(pair[1].split()) for pair in conversation_pairs] 
-
+def generate_ngrams(words, n):
+    return [" ".join(words[i:i+n]) for i in range(len(words)-n+1)]
 ```
-Como se puede observar en el código, se procesan las líneas del archivo de texto y se extraen las conversaciones. Se generan pares de entrada y salida, donde la entrada es el mensaje anterior y la salida es el mensaje actual. Las respuestas se almacenan en una lista para su uso posterior.
+Esta función genera n-gramas (secuencias de n palabras consecutivas) a partir de una lista de palabras. Por ejemplo, a partir de las palabras `["hello", "world"]`, genera un bigrama como `["hello world"]`.
 
-A continuación, se muestra el código de la función que codifica un mensaje en un vector binario:
+
+#### **3. Lectura del archivo de conversaciones** <a id="lectura"></a>
+
+El archivo `data1.txt` contiene líneas con conversaciones en el formato `Sujeto A: mensaje` y `Sujeto B: respuesta`. Se cargan todas las líneas en una lista para su procesamiento.
+
+```python
+with open("data1.txt", "r", encoding="utf-8") as file:
+    lines = file.readlines()
+```
+
+
+#### **4. Validación de balance entre sujetos** <a id="balance"></a>
+
+Se asegura que el número de mensajes de "Sujeto A" y "Sujeto B" sea igual. Si hay un desbalance, el script muestra un error, elimina cualquier archivo previo generado (`chatbot_data.js`) y finaliza la ejecución.
+
+```python
+if sujeto_a_count != sujeto_b_count:
+    print(f"Error: Hay un desbalance en las líneas.")
+    if os.path.exists("chatbot_data.js"):
+        os.remove("chatbot_data.js")
+    exit()
+```
+
+
+#### **5. Procesamiento del archivo línea por línea** <a id="procesamiento"></a>
+
+El script utiliza expresiones regulares para separar el usuario (Sujeto A o B) del mensaje:
+
+```python
+match = re.match(r"(Sujeto [A-B]): (.+)", line.strip())
+```
+
+- **Sujeto A**: Los mensajes se procesan eliminando caracteres especiales y reemplazando contracciones para un formato uniforme.  
+- **Sujeto B**: Solo se expanden las contracciones.
+
+Las interacciones entre Sujeto A (preguntas) y Sujeto B (respuestas) se almacenan como pares de conversación para su posterior uso:
+
+```python
+conversation_pairs.append((last_message, message))
+```
+
+#### **6. Generación de palabras clave (keywords)** <a id="keywords"></a>
+
+El script extrae unigramas (palabras únicas), bigramas, trigramas y más desde las preguntas de "Sujeto A" para generar una lista de palabras clave únicas. Estas se almacenan en un conjunto y se ordenan al final:
+
+```python
+keywords = list(sorted(keywords))
+```
+
+#### **7. Codificación de mensajes** <a id="codificacion"></a>
+
+La función `encode_message` convierte un mensaje en un vector binario donde cada posición indica la presencia o ausencia de un término de la lista de palabras clave.
+
 ```python
 def encode_message(message, keywords):
-    encoding = [1 if word in message.lower().split() else 0 for word in keywords]
+    words = message.lower().split()
+    all_ngrams = []
+    for i in range(1, n + 1): 
+        all_ngrams.extend(generate_ngrams(words, i))
+    encoding = [1 if term in all_ngrams else 0 for term in keywords]
     return encoding
 ```
-Cada palabra clave se convierte en un vector binario de 1s y 0s, donde 1 indica que la palabra está presente en el mensaje y 0 indica que no lo está.
-<br>
-Para la generación de los datos de entrenamiento, se utilizó el siguiente código en Python:
+
+#### **8. Generación de datos de entrenamiento y objetivo** <a id="entrenamiento"></a>
+
+Para cada par de conversación (pregunta-respuesta):
+- La pregunta se codifica usando `encode_message`.
+- Se genera un vector objetivo que identifica la respuesta correcta.
+
+```python
+target_data[-1][i] = 1  # Marcar la respuesta correcta
+```
+
+#### **9. Validación de los datos generados** <a id="validacion"></a>
+
+Antes de continuar, el script valida que el número de entradas de entrenamiento coincida con el número de etiquetas objetivo. Si no coinciden, elimina el archivo generado previamente y finaliza.
+
+
+#### **10. Guardado de datos en un archivo JavaScript** <a id="guardado"></a>
+
+Finalmente, el script genera el archivo `chatbot_data.js` con las siguientes variables:
+
+1. **Keywords**: Una lista de las palabras clave extraídas.
+2. **TrainingData**: Datos de entrenamiento (representaciones vectoriales de las preguntas).
+3. **TargetData**: Etiquetas correspondientes a las preguntas.
+4. **TargetResponses**: Respuestas reales que el chatbot devolverá.
+
+El archivo se genera de la siguiente manera:
+
 ```python
 with open("chatbot_data.js", "w", encoding="utf-8") as js_file:
-    js_file.write("//Esta variable contiene una lista de las palabras clave (tokens) que se extraen de las conversaciones.\n")
     js_file.write("const keywords = [\n")
     for keyword in keywords:
-        js_file.write(f"\t'{keyword}',\n") 
+        js_file.write(f"    '{keyword}',\n")
     js_file.write("];\n\n")
-
-```
-En el código anterior, se crea un archivo JavaScript con las palabras clave extraídas de las conversaciones. 
-
-
-## Interfaz gráfica <a id="interfaz"></a>
-Para la interfaz gráfica se utilizó HTML, CSS y JavaScript. Se crearon elementos de HTML para mostrar las conversaciones y se implementaron funciones de JavaScript para enviar mensajes y recibir respuestas del chatbot.
-
-A continuación, se muestra el código HTML donde se inserta el chatbot:
-```html	
-    <div id="chatbot">
-        <div id="loading-msg">
-            Cargando modelo...
-        </div>
-        <div id="chat-window">
-            <div id="messages"></div>
-        </div>
-        <div id="input-area">
-            <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje aquí..." />
-            <button type="button" class="btn btn-primary" id="send-button"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="25" height="25" viewBox="0 0 20 20">
-                    <path fill="currentColor" d="m0 0l20 10L0 20zm0 8v4l10-2z" />
-                </svg></button>
-        </div>
-    </div>
+    # Similar para trainingData, targetData y targetResponses
 ```
 
-Como se puede observar en el código, se crearon elementos div para mostrar los mensajes y el área de entrada de texto. Se utilizó un botón para enviar los mensajes y se implementaron funciones de JavaScript para manejar los eventos de clic en el botón y presionar la tecla Enter.
+#### **11. Mensajes de éxito** <a id="exito"></a>
 
-## Flujo del sistema <a id="flujo"></a>
+Si todo el proceso se ejecuta correctamente, el script indica el número de datos generados y confirma la creación del archivo:
 
-1. Procesamiento del entrenamiento:
-    1. Primero se debe generar el archivo **chatbot_data.js** con los datos de entrenamiento. Para ello, se debe ejecutar el script de python **conversor.py**. Las onversaciones en el archivo de texto son transformadas en vectores de entrada y salidas esperadas.
-    2. El modelo es entrenado cuando el usuario ingresa a la página ejecutando inmediatamente el script.js para asociar patrones de entradas con respuestas predefinidas.
-
-2. Codificación del input:
-La entrada del usuario es transformada en un vector binario usando las palabras clave.
-
-3. Predicción:
-    1. El modelo secuencial de TensorFlow predice la probabilidad de cada respuesta posible. La respuesta con mayor probabilidad es seleccionada y se verifica que cumpla con un umbral mínimo, de lo contrario, se envía un mensaje de error. 
-    2. La respuesta seleccionada es decodificada y mostrada en la interfaz gráfica.
-
-4. Interacción en la interfaz:
-    1. El usuario escribe preguntas en un cuadro de texto.
-    2. El chatbot responde simulando un efecto de escritura.
+```python
+print("Archivo chatbot_data.js generado con éxito.")
+```
 
 

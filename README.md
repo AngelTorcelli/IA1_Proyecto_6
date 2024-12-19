@@ -66,7 +66,7 @@ UsatBot responderá automáticamente cuando envies tu mensaje. Además, podrás 
 
 ### 3. Preguntas que puedes hacer
 
-UsatBot está diseñado para comprender preguntas simples y proporcionar respuestas basadas en información básica.
+UsatBot está diseñado para comprender preguntas simples y proporcionar respuestas basadas en información básica. Tambien podras hacer preguntas en inglés y UsatBot responderá en el mismo idioma.
 
 También es capaz de mantener una conversación sencilla.
 
@@ -82,7 +82,7 @@ Esto se traduce en conversaciones muy simples, como saludos, agradecimientos, as
 
 ## Características
 
-UsatBot utiliza un modelo de IA entrenado previamente y no requiere intervención del usuario para mejorar o modificar las respuestas.
+UsatBot utiliza un modelo de IA entrenado previamente y no requiere intervención del usuario para mejorar o modificar las respuestas. Si es primera vez que  usas UsatBot, espera un momento mientras el modelo se entrena. Una vez que el modelo esté listo, podrás comenzar a chatear, Despues de eso, el entrenamiento no será necesario nuevamente.
 
 Ademas el diseño de UsatBot está optimizado para ofrecer una experiencia de usuario sencilla y fluida, sin complicaciones.
 
