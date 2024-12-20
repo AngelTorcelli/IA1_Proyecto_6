@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USHATBOT</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>UshatBot</title>
+    <link rel="stylesheet" href="estilos.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-
 </head>
-
 <body>
     <div id="intro-message">
         <img src="images/logo.png" alt="Logo" id="intro-image" /><br>
         ¡Bienvenido al Usatbot!
     </div>
-
-    <div id="chatbot">
-        <div id="loading-msg">
+    <section class="menu" style="display: none;">
+ 
+        <div class = "logo-container">
+            <h1> <img class="logo" src="images/logo.png" alt="icono"> UsatBot</h1>
+            
+        </div>
+        <div class="menu-container">
+          <h4>Temas:</h4>
+          <ul>
+            <li class ="menu-item" ><img src="images/chat.png" alt="Chat" class="menu-icon ">Saludos</li>
+            <li class ="menu-item"><img src="images/chistes.png" alt="Guía rápida" class="menu-icon"> Chistes </li>
+            <li class ="menu-item"><img src="images/curioso.png" alt="Temas de Conversación" class="menu-icon"> Datos curiosos</li>
+            <li class ="menu-item"><img src="images/consejos.png" alt="Configuración" class="menu-icon"> Consejos de programación</li>
+            <li class ="menu-item"><img src="images/recomendacion.png" alt="Configuración" class="menu-icon"> Herramientas útiles</li>
+            <li class ="menu-item"><img src="images/programacion.png" alt="Configuración" class="menu-icon"> Conceptos básicos de programación</li>
+          </ul>
+          <div id="loading-msg">
             Cargando modelo...
+            </div>
         </div>
-        <div id="chat-window">
-            <div id="messages"></div>
-        </div>
-        <div id="input-area">
-            <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje aquí..." />
-            <button type="button" class="btn btn-primary" id="send-button"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="25" height="25" viewBox="0 0 20 20">
-                    <path fill="currentColor" d="m0 0l20 10L0 20zm0 8v4l10-2z" />
-                </svg></button>
-        </div>
-    </div>
+    </section>
+    <section class = "content_menu" style="display: none;">
+      <section id="main-content">
+          <div id="messages" >
+              <!-- Mensajes -->
+  
+          </div>
+          
+      
+          <div class="message-input">
+              <input type="text" placeholder="Escribe tu mensaje..." id="messageInput" />
+              <button id="sendMessage"><img src="images/send.png" alt="Enviar" class="send-icon"></button>
+          </div>
+          
+      </section>
+     
+    </section>
+    
 
-    <script>
-        setTimeout(function () {
-            document.getElementById('intro-message').style.display = 'none';
-
-            document.getElementById('chatbot').style.display = 'flex';
-
-            document.body.classList.add('show-chat'); 
-
-            document.body.style.backgroundColor = '#f4f4f4'; 
-
-            document.getElementById('intro-message').style.backgroundColor = '#f4f4f4'; 
-        }, 4000); 
-
-        function scrollToBottom() {
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.scrollTop = chatWindow.scrollHeight;
-        }
-
-        scrollToBottom();
-    </script>
     <script src="lang_detec.js"></script>
     <script src="chatbot_data.js"></script>
-    <!-- <script src="Entrenamiento/script_entrenamiento.js"></script> -->
-    <script src="script.js"></script> 
+    <script src="script2.js"></script>
 </body>
-
 </html>

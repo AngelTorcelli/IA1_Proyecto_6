@@ -35,13 +35,10 @@
 
 ![Inicio de UsatBot](/images/interfaz_inicio.png)
 
-3. **Chat:** Después del mensaje de bienvenida, podrás ver el área de chat. Sin embargo, espera un momento, no podrás interactuar con la IA de inmediato; primero, el modelo debe completarse el entrenamiento.
+3. **Chat:** Después del mensaje de bienvenida, podrás ver el área de chat. Puedes interactura con la IA desde el inicio, pero si tienes problemas, debes asegurarte que el mensaje de que el modelo esta cargado este o si hay algun mensaje de error.
 
 ![Inicio de Entrenamiento](/images/interfaz_entrenamiento.png)
 
-4. **Finalizacion de entrenamiento:** Una vez que veas el mensaje de que el modelo ha sido entrenado, podrás comenzar a conversar.
-
-![Fin de Entrenamiento](/images/interfaz_entrenado.png)
 
 ## Uso de UsatBot
 
@@ -66,19 +63,21 @@ UsatBot responderá automáticamente cuando envies tu mensaje. Además, podrás 
 
 ### 3. Preguntas que puedes hacer
 
+En el menú se dejan los temas que puedes hablar con la IA. 
+
+![Temas de conversacion](/images/temas_conversacion.png)
+
+Puedes dar clik en cualquiera de estos botones para tener una sugerencia de como preguntarle.
+
+#### NOTA
+
 UsatBot está diseñado para comprender preguntas simples y proporcionar respuestas basadas en información básica. Tambien podras hacer preguntas en inglés y UsatBot responderá en el mismo idioma.
 
 También es capaz de mantener una conversación sencilla.
 
-Puede haber ocaciones en que UsatBot no comprenda lo que preguntas debido a lo anterior.
+Puede haber ocaciones en que UsatBot no comprenda lo que preguntas debido a lo anterior, ya que su capacidad está en una etapa inicial. 
 
-UsatBot está diseñado para comprender preguntas simples y proporcionar respuestas basadas en información básica.
-
-También es capaz de mantener una conversación sencilla.
-
-Sin embargo, en ocasiones, UsatBot puede no entender completamente lo que preguntas, ya que su capacidad está en una etapa inicial. 
-
-Esto se traduce en conversaciones muy simples, como saludos, agradecimientos, así como algunas respuestas sobre él mismo. También puede ofrecer retos sencillos de programación básica, responder preguntas sobre conceptos de programación en Python y JavaScript. Dado que la IA aún está en desarrollo, es posible que se confunda en algunos casos.
+Esto se traduce en conversaciones muy simples, como saludos, agradecimientos, así como algunas respuestas sobre él mismo o contar algunos "chistes" . También puede ofrecer consejos de programacion, hacer recomendaciones de herramientas utiles, responder preguntas sobre conceptos de programación de Python y JavaScript. Dado que la IA aún está en desarrollo, es posible que se confunda en algunos casos.
 
 ## Características
 
