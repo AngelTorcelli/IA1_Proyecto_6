@@ -42,8 +42,8 @@ def file2sentences(filename):
   return sentences
 
 
-spanish = file2sentences("espanol.txt")
-english = file2sentences("ingles.txt")
+spanish = file2sentences("spa_nuevo.txt")
+english = file2sentences("eng_nuevo.txt")
 
 spanish[100:110]
 
@@ -97,7 +97,8 @@ test = [
 ('I met Annalisa en Madrid and she told me she wanted una tortilla de patatas', 'English sentence with Spanish words'),
 ('I met Annalisa en Madrid and she told me she wanted una tortilla de patatas', 'English sentence with Spanish words'),
 ('Tengo que reparar mi avioneta', 'Spanish sentence'),
-('I have to repair my airplane', 'English sentence')
+('I have to repair my airplane', 'English sentence'),
+('Tell me a joke', 'English sentence'),
         ]
 
 
@@ -109,9 +110,14 @@ for i in range(len(test)):
   print("Predicted language: {}".format(pred[i]))
   print("-----------------------")
 
-# Guardar modelo
+to_save = {
+    'model': model,
+    'vectorizer': cnt
+}
+
+# Guardar modelo y vectorizador
 with open("modelo_lang_detector.pkl","wb") as f:
-  pickle.dump(model,f)
+  pickle.dump(to_save,f)
 
 ### Esto usarlo en otro archivo para usar el modelo ---------------------------------------------
 # Cargar modelo
@@ -119,8 +125,8 @@ with open("modelo_lang_detector.pkl","rb") as f:
   model = pickle.load(f)
 
 # probar modelo y guardar la prediccion en una variable
-prediccion = model.predict(cnt.transform(["I have to repair my airplane"]))
-prediccion2 = model.predict(cnt.transform(["Hola mucho gusto"]))
+prediccion = model['model'].predict(model['vectorizer'].transform(["I have to repair my airplane"]))
+prediccion2 = model['model'].predict(model['vectorizer'].transform(["tell me"]))
 
 print(prediccion)
 print(prediccion2)
