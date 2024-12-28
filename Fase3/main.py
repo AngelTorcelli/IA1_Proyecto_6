@@ -114,9 +114,13 @@ def send_message(event=None):
 # Función para recibir un mensaje
 def receive_message(message):
     message_area.config(bg="gray90")
-    typing_effect(message, 0)
     vt=validar_texto(message)
-    print(vt)
+    print(vt, "tamaño: ", len(vt))
+    if len(vt)==1:
+        typing_effect(message, 0)
+    else:   
+        typing_effect2(vt, message_area, 0)
+
 
 
 def validar_texto(texto):
@@ -136,6 +140,27 @@ def validar_texto(texto):
     return resultado
 
 # Simular efecto de escritura con manejo de caracteres especiales
+def typing_effect2(message, area, index=0):
+    if index < len(message):
+        area.config(state=tk.NORMAL)
+        texto=message[index]
+        texto = texto.replace("\\n", "\n").replace("\\t", "\t")
+        if "☺" in texto:
+            texto=texto.replace("☺", "")
+            area.insert(tk.END, texto + " ", "code")
+        else:
+            area.insert(tk.END, texto + " ", "left_message")
+        area.config(state=tk.DISABLED)
+        area.yview(tk.END)
+        root.after(100, typing_effect2, message, area, index + 1)
+    else:
+        area.config(state=tk.NORMAL)
+        area.insert(tk.END, "\n")
+        area.config(state=tk.DISABLED)
+        enable_send_button()
+
+
+# Simular efecto de escritura con manejo de caracteres especiales
 def typing_effect(message, index):
     # Reemplazar caracteres especiales por sus equivalentes visibles
     formatted_message = message.replace("\\n", "\n").replace("\\t", "\t")
@@ -153,12 +178,15 @@ def typing_effect(message, index):
         enable_send_button()
 
 
+
 # Habilitar/deshabilitar botón de enviar
 def disable_send_button():
+    message_entry.config(state=tk.DISABLED)
     send_button.config(state=tk.DISABLED)
 
 def enable_send_button():
     send_button.config(state=tk.NORMAL)
+    message_entry.config(state=tk.NORMAL)
 
 # Configurar la ventana principal
 root = tk.Tk()
@@ -193,6 +221,7 @@ send_button.pack(side=tk.LEFT, padx=(0, 100))
 
 # Configuración de mensajes
 message_area.tag_configure("left_message", justify="left", foreground="black", font=("Arial", 14, "bold"))
+message_area.tag_configure("code", justify="left", foreground="green", font=("Consolas", 14, "italic"))
 message_area.tag_configure("right_message", justify="right", foreground="blue", font=("Arial", 14, "bold"))
 
 # Ejecutar la aplicación
