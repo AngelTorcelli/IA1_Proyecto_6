@@ -1,0 +1,51 @@
+PREGUNTA;RESPUESTA
+Hi there.;Hello!\n Need help with something specific today? I can assist with programming questions, explain concepts, or even share a joke to brighten your day. Just let me know what you need!
+Hi!;Hey there!\n Welcome to the chat. What do you need to do today? I can help you with programming questions, explain concepts, or even share a joke to lighten the mood. Just let me know how I can assist you!
+Hello;Hi! Glad to have you here. Let me know how I can help you today. I can assist with programming questions, explain concepts, or even share a joke to lighten the mood. What do you need?
+How are you?;I am fine. do you want to know about what a chatbot is?
+What is a chatbot?;A chatbot is a computer program that simulates human conversation through voice commands or text chats or both. It is designed to interact with users in a natural way, providing information, answering questions, and performing tasks. Do you want to know how chatbots work?
+How do chatbots work?;Chatbots work by using natural language processing (NLP) and artificial intelligence (AI) to understand and respond to user queries. They can be rule-based, using predefined responses, or AI-based, learning from interactions to improve responses. Do you want to know how i work?
+How do you work?;I work by analyzing the text input you provide, processing it using natural language processing (NLP) algorithms, and generating a response based on predefined rules and patterns. I can answer questions about programming, software development, and technology. Do you have any specific questions?
+Yes;Sorry, what is your question?
+Yes i do;What is your question?
+what is a variable?; A variable is a named storage location in a computer's memory that holds a value. For example: \n |x="hola mundo"|
+I am pretty good;oh That is great to hear. How can I assist you today? I can help answer questions about programming, software development, and technology.
+I am good;That is wonderful to hear. How can I help you today? I can answer questions about programming, software development, and technology.
+I am sad;I am sorry to hear that. Is there anything I can do to help, tell me if you want to hear a joke?
+Hey!;Hi there! Great to see you here. What can I do for you today?
+what can you do?;I can help answer questions about programming, software development, and technology. Do you want to know about programming languages, algorithms or tell me if you want to hear a joke?
+what can you do for me?;I can help answer questions about programming, software development, and technology. Do you want to know about programming languages, algorithms, or any specific topic?
+I am interested in learning more about programming. Can you help me with that?;Sure, I would be happy to help. Did you know that programming is the process of creating a set of instructions that tell a computer how to perform a task? These instructions can be written in various programming languages such as Java, Python, C++, and many others. Do you have any specific questions about programming?
+What is a variable in programming?;A variable is a named storage location in a computer's memory that holds a value. Variables are used to store data that can be manipulated and referenced in a program. Do you want to know what is a data type?
+Hello, how are you?;I am doing great, thanks for asking! How about you?
+Hey, how is it going?;Hey! Everything's going well, thanks for asking. How are you?
+Hello, how's everything?;Hello! Everything's great, thank you. How are you doing?
+Hey! How are you doing?;Hey! I'm doing well, thanks. How about you?
+Hi there, how are you doing?;Hi! I'm doing really well, thank you! How's everything on your side?
+Hi! How's everything with you?;Hi! Everything is going well on my end, thanks for asking. How's your day?
+Hi, how are things?;Things are going smoothly, thanks! How's your day going?
+Hi again;Hi again! Need help with something new?
+Hello again.;Welcome back! What can I assist you with this time?
+Good morning.;Good morning!  I hope you are having a great day. How can I assist you?
+Good afternoon.;Good afternoon! Welcome to the chat. How may I assist you today?
+Good evening.;Good evening! . What can I do for you?
+How can you help me?;I can assist with code troubleshooting, explaining tricky concepts, or even helping you start a new project. Let me know what you're working on!
+Can you do anything else?;Not at the moment, I'm afraid. My abilities are limited to the topics we discussed earlier. I might not have all the answers and could make mistakes sometimes, but I'll do my best to assist you!
+Can you help me with anything else?;I'm sorry, but I can only assist with the areas I mentioned earlier. If there's something related to those topics, I'd be happy to help!
+Do you know anything else?;Not really. My knowledge is limited to what we discussed earlier, but I'll do my best within those boundaries!
+What else can you help with?;Unfortunately, I can't assist with anything outside the topics I've already mentioned. . I'm not perfect and may not know everything, but I'll always try to help within my scope!
+I'm doing well, thanks!;I'm glad to hear that! How can I assist you today?
+I am doing fine!;That is great! What can I help you with today?
+Pretty good, thanks!;Glad to hear that! What would you like help with today?
+I'm doing great too!;Awesome! How can I assist you today?
+It is going great!;Awesome! What can I do for you today?
+Everything's fine, thanks!;Glad to hear that! How can I assist you today?
+All good here!;I'm happy to hear that! How can I help you today?
+I'm doing well!;That is awesome! I am glad to hear that! How can I assist you today?
+I'm doing great!;Fantastic! I am happy to hear that! What would you like me to help you with today?
+I am doing really good!;That's great to hear! What can I help you with today?
+I'm feeling fantastic today!;Wow, that's wonderful! What can I assist you with today?
+I'm okay.;Glad to hear you are doing okay. Sometimes just having a calm day is all we need! How can I assist you today?
+I am well.;Great to hear! Remember, every small step forward is a step towards your goals. How can I assist you today?
+I am well, thank you.;That is fantastic! Keep up the positive energy. What is on your mind today?
+I am well, thanks.;I am glad to hear that! Let us make today productive. What can I do for you today?
