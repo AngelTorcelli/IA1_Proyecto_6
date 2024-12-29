@@ -87,10 +87,8 @@ def get_response(user_input):
 # Función para mostrar un mensaje en el área de texto
 def display_message(message, side):
     message_area.config(state=tk.NORMAL)
-    if side == "left":
-        message_area.insert(tk.END, f"{message}\n", "left_message")
-    else:
-        message_area.insert(tk.END, f"{message}\n", "right_message")
+
+    message_area.insert(tk.END, f"{message}\n", "right_message")
     message_area.yview(tk.END)
     message_area.config(state=tk.DISABLED)
 
@@ -99,7 +97,7 @@ def send_message(event=None):
     if send_button['state'] == 'normal':
         message = message_entry.get()
         if message.strip():
-            display_message("👤: " + message+"  ", "right")
+            display_message("\n👤: " + message+" ", "right")
             msj_bot=get_response(message)
             l=detectar_lang(message)
             if l!=lang_envio:
@@ -110,17 +108,6 @@ def send_message(event=None):
             message_entry.delete(0, tk.END)
             disable_send_button()
             receive_message("🤖: " + msj_final)
-
-# Función para recibir un mensaje
-def receive_message(message):
-    message_area.config(bg="gray90")
-    vt=validar_texto(message)
-    print(vt, "tamaño: ", len(vt))
-    if len(vt)==1:
-        typing_effect(message, 0)
-    else:   
-        typing_effect2(vt, message_area, 0)
-
 
 
 def validar_texto(texto):
@@ -133,50 +120,54 @@ def validar_texto(texto):
     # Procesamos cada coincidencia
     for match in partes:
         if match.group(2):  # Si el texto está entre '|', group(2) tendrá el texto entre las barras
-            resultado.append(f"☺{match.group(2).strip()}")
+            resultado.append(f"☺{match.group(2).strip()} ")
         elif match.group(3):  # Si no está entre '|', group(3) tendrá el texto fuera de las barras
-            resultado.append(match.group(3).strip())
+            resultado.append(match.group(3).strip()+" ")
 
-    return resultado
+    return [elemento.replace("\\n", "\n") for elemento in resultado]
 
-# Simular efecto de escritura con manejo de caracteres especiales
-def typing_effect2(message, area, index=0):
-    if index < len(message):
-        area.config(state=tk.NORMAL)
-        texto=message[index]
-        texto = texto.replace("\\n", "\n").replace("\\t", "\t")
-        if "☺" in texto:
-            texto=texto.replace("☺", "")
-            area.insert(tk.END, texto + " ", "code")
-        else:
-            area.insert(tk.END, texto + " ", "left_message")
-        area.config(state=tk.DISABLED)
-        area.yview(tk.END)
-        root.after(100, typing_effect2, message, area, index + 1)
+# Función para recibir un mensaje con manejo secuencial de texto
+def receive_message(message):
+    message_area.config(bg="gray90")
+    vt = validar_texto(message)  # Lista de partes del texto procesado
+    print(vt, "tamaño: ", len(vt))
+    process_vt(vt, 0)  # Procesa los elementos de vt uno por uno
+
+# Función para procesar secuencialmente los elementos de vt
+def process_vt(vt, index):
+    if index < len(vt):  # Si quedan elementos por procesar
+        typing_effect(vt[index], 0, lambda: process_vt(vt, index + 1))
     else:
-        area.config(state=tk.NORMAL)
-        area.insert(tk.END, "\n")
-        area.config(state=tk.DISABLED)
-        enable_send_button()
+        enable_send_button()  # Habilitar el botón después de terminar todos los mensajes
 
-
-# Simular efecto de escritura con manejo de caracteres especiales
-def typing_effect(message, index):
-    # Reemplazar caracteres especiales por sus equivalentes visibles
-    formatted_message = message.replace("\\n", "\n").replace("\\t", "\t")
-    
-    if index < len(formatted_message):
+# Función para mostrar el efecto de tipeo en un solo mensaje
+def typing_effect(message, index, callback=None):
+    if index < len(message):
         message_area.config(state=tk.NORMAL)
-        message_area.insert(tk.END, formatted_message[index], "left_message")
+        char = message[index]
+
+        if char == "\n":
+            print("salto de línea")
+        
+        # Si contiene ☺, aplica el formato especial
+        if "☺" in message:
+            formatted_char = char.replace("☺", "")  # Eliminar el símbolo ☺
+            message_area.insert(tk.END, formatted_char, "code")
+        else:
+            message_area.insert(tk.END, char, "left_message")
+        
         message_area.config(state=tk.DISABLED)
         message_area.yview(tk.END)
-        root.after(20, typing_effect, message, index + 1)
+        
+        # Continuar escribiendo el siguiente carácter
+        root.after(20, typing_effect, message, index + 1, callback)
     else:
+        # Cuando termina de escribir el mensaje, llama al callback
+        if callback:
+            callback()
         message_area.config(state=tk.NORMAL)
-        message_area.insert(tk.END, "\n")
+        #message_area.insert(tk.END, "\n")
         message_area.config(state=tk.DISABLED)
-        enable_send_button()
-
 
 
 # Habilitar/deshabilitar botón de enviar

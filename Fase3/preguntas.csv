@@ -8,7 +8,7 @@ How do chatbots work?;Chatbots work by using natural language processing (NLP) a
 How do you work?;I work by analyzing the text input you provide, processing it using natural language processing (NLP) algorithms, and generating a response based on predefined rules and patterns. I can answer questions about programming, software development, and technology. Do you have any specific questions?
 Yes;Sorry, what is your question?
 Yes i do;What is your question?
-what is a variable?; A variable is a named storage location in a computer's memory that holds a value. For example: \n |x="hola mundo"|
+what is a variable?; A variable is a named storage location in a computer's memory that holds a value. For example:\n|x="hola mundo"\nlet x="hola mundo"| \nThis are two ways to declare a variable in python and javascrpit. Do you want to know more about variables?
 I am pretty good;oh That is great to hear. How can I assist you today? I can help answer questions about programming, software development, and technology.
 I am good;That is wonderful to hear. How can I help you today? I can answer questions about programming, software development, and technology.
 I am sad;I am sorry to hear that. Is there anything I can do to help, tell me if you want to hear a joke?
