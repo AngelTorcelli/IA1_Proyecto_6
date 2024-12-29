@@ -1,14 +1,21 @@
-﻿PREGUNTA;RESPUESTA
-hola;¡Hola!¿En qué puedo ayudarte?
-¿cómo estás?;Estoy bien, gracias. ¿Y tú?
-cuéntame un chiste;¿Qué hace una abeja en el gimnasio? ¡Zum-ba!
-adiós;¡Adiós! Que tengas un buen día.
-estoy bien;Me alegra, dime en qué puedo asistirte hoy?
-estoy mal;No te desanimes, vamos, preguntame algo e intentaré contestarte
-estoy cansado;Animo! Puedes relajarte preguntandome cosas
-Sabes cantar?;No, soy un chat con limitaciones asi que no sé cantar
-Dame un dato interesante;El primer programador en todo el mundo fue una mujer. Se llamaba Ada Lovelace y nació en 1815. Algunas personas creen que Lovelace publicó el primer algoritmo destinado a ser ejecutado por una máquina.
-Que es programar?;Programar es un proceso que consiste en una secuencia de pasos detallados y ordenados, a estos se le denominan algoritmos y el fichero donde transcribimos estas instrucciones usando un lenguaje de programación (Python, Java, Javascript, etc) para que pueda ser ejecutado por un ordenador, este sería el programa.
-Que es programador?;Persona que elabora programas de computadora.
-Que es una computadora?;En términos sencillos se puede definir una computadora como una máquina que obedece órdenes para efectuar cálculos y operaciones lógicas en poco tiempo. Es un dispositivo que puede recibir, almacenar, procesar información y generar resultados o respuestas. 
-Qué es un algoritmo?;En informática, se llaman algoritmos el conjunto de instrucciones sistemáticas y previamente definidas que se utilizan para realizar una determinada tarea. Estas instrucciones están ordenadas y acotadas a manera de pasos a seguir para alcanzar un objetivo.
+PREGUNTA;RESPUESTA
+hello;Hello! How can I help you?
+how are you?;I'm fine, thanks. And you?
+tell me a joke;What does a bee do in the gym? Buzz!
+bye;Goodbye! Have a nice day.
+I'm fine;I'm glad, tell me how I can help you today?
+I'm bad;Don't be discouraged, come on, ask me something and I'll try to answer you.
+I'm tired;Cheer up! You can relax by asking me questions.
+Do you know how to sing?;No, I'm a chat with limitations so I can't sing.
+Give me an interesting fact;The first programmer in the world was a woman. Her name was Ada Lovelace and she was born in 1815. Some people believe that Lovelace published the first algorithm intended to be executed by a machine.
+What is programming?;Programming is a process that consists of a sequence of detailed and ordered steps, these are called algorithms and the file where we transcribe these instructions using a programming language (Python, Java, Javascript, etc.) so that it can be executed by a computer, this would be the program.
+What is a programmer?;Person who develops computer programs.
+What is a computer?;In simple terms, a computer can be defined as a machine that obeys orders to perform calculations and logical operations in a short time. It is a device that can receive, store, process information and generate results or responses.
+What is an algorithm?;In computer science, algorithms are the set of systematic and previously defined instructions used to perform a specific task. These instructions are ordered and defined as steps to follow to achieve a goal.
+What is computer science;Computer science is a discipline that studies the methods, techniques and processes for storing, processing and transmitting information and data in digital format. Computer science covers a wide range of areas, such as programming, artificial intelligence, robotics, cybersecurity, among others.
+What is a chatbot?;A chatbot is a computer program that simulates having a conversation with a person by providing automatic responses to input made by the user. Chatbots can be used in a variety of applications, such as customer service, technical support, entertainment, and more.
+What is a programming language?;A programming language is a set of rules and symbols that allow computer programs to be written. These languages ​​are used to create software, applications, and computer systems. Some examples of programming languages ​​are Python, Java, C++, JavaScript, among others.
+What is artificial intelligence?;Artificial intelligence is a branch of computer science that focuses on the development of systems and programs capable of performing tasks that require human intelligence, such as learning, perception, reasoning, and decision making. Artificial intelligence relies on algorithms and mathematical models to simulate human intelligence.
+What kinds of algorithms exist?;There are different types of algorithms, among which we can mention:\n- Search algorithms: used to find an element in a list.\n- Sorting algorithms: used to order elements in a list.\n- Graph algorithms: used to solve problems related to graphs.\n- Recursion algorithms: used to solve problems recursively.\n- Dynamic programming algorithms: used to solve optimization problems.\nThese are just a few examples, as there are many types of algorithms used in different areas of computer science.
+What are search algorithms?;Some examples of search algorithms are:\n- Sequential search: goes through a list of items looking for a specific value.\n- Binary search: splits a list into two halves and looks for the value in the corresponding half.\n- Interpolation search: uses a mathematical formula to estimate the position of the searched value.\nThese are just some examples of search algorithms, as there are other types of algorithms used to search for items in a list.
+Give me an example of sequential search algorithm;An example of a sequential search algorithm in Python would be as follows:|\n\ndef sequential_search(list, value):\n\tfor i in range(len(list)):\n\t\tif list[i] == value:\n\t\t\treturn i\n\treturn -1\n\n|In this algorithm, the list of elements is traversed one by one and each element is compared to the searched value. If the value is found, the position at which it is found in the list is returned. If it is not found, -1 is returned.

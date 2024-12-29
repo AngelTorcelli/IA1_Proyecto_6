@@ -13,13 +13,14 @@ from idioma_chat import detectar_lang, traducir
 lang_envio = "en"
 
 # Cargar el archivo de preguntas y respuestas
-df = pd.read_csv("preguntas.csv", delimiter=";")
+df = pd.read_csv("chat_data.csv", delimiter=";")
+#df = pd.read_csv("preguntas.csv", delimiter=";")
 
 # Descargar recursos necesarios de nltk
-nltk.download('punkt')
+""" nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
-
+ """
 # Inicializar el Stemmer y el Lemmatizer
 stemmer = PorterStemmer()
 lemmatizer = WordNetLemmatizer()
@@ -59,7 +60,7 @@ print("Conversión a características numéricas completada.")
 
 # Entrenar el modelo
 print("Entrenando el modelo...")
-model = MultinomialNB(alpha=0.5) # se puede cambiar el valor de alpha o quitarlo
+model = MultinomialNB() # se puede cambiar el valor de alpha o quitarlo
 model.fit(X_vectors, y)
 print("Modelo entrenado con éxito.")
 
@@ -124,13 +125,13 @@ def validar_texto(texto):
         elif match.group(3):  # Si no está entre '|', group(3) tendrá el texto fuera de las barras
             resultado.append(match.group(3).strip()+" ")
 
-    return [elemento.replace("\\n", "\n") for elemento in resultado]
+    return [elemento.replace("\\n", "\n").replace("\\t","\t") for elemento in resultado]
 
 # Función para recibir un mensaje con manejo secuencial de texto
 def receive_message(message):
     message_area.config(bg="gray90")
     vt = validar_texto(message)  # Lista de partes del texto procesado
-    print(vt, "tamaño: ", len(vt))
+    #print(vt, "tamaño: ", len(vt))
     process_vt(vt, 0)  # Procesa los elementos de vt uno por uno
 
 # Función para procesar secuencialmente los elementos de vt
@@ -146,9 +147,6 @@ def typing_effect(message, index, callback=None):
         message_area.config(state=tk.NORMAL)
         char = message[index]
 
-        if char == "\n":
-            print("salto de línea")
-        
         # Si contiene ☺, aplica el formato especial
         if "☺" in message:
             formatted_char = char.replace("☺", "")  # Eliminar el símbolo ☺
