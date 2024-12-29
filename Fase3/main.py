@@ -13,7 +13,7 @@ from idioma_chat import detectar_lang, traducir
 lang_envio = "en"
 
 # Cargar el archivo de preguntas y respuestas
-df = pd.read_csv("chat_data.csv", delimiter=";")
+df = pd.read_csv("preguntas.csv", delimiter=";")
 #df = pd.read_csv("preguntas.csv", delimiter=";")
 
 # Descargar recursos necesarios de nltk
