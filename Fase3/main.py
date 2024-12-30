@@ -1,89 +1,133 @@
 import tkinter as tk
 from tkinter import scrolledtext
 from sklearn.feature_extraction.text import TfidfVectorizer  # Importar TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
-import nltk
-from nltk.stem import PorterStemmer, WordNetLemmatizer
-from nltk.corpus import wordnet
-import unicodedata
-import re
 import pandas as pd
 from idioma_chat import detectar_lang, traducir
 
+from sklearn.metrics.pairwise import cosine_similarity
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+import re
+import joblib
+import os
 lang_envio = "en"
 
-# Cargar el archivo de preguntas y respuestas
-df = pd.read_csv("preguntas.csv", delimiter=";")
-#df = pd.read_csv("preguntas.csv", delimiter=";")
+class ProgrammingChatbot:
+    def __init__(self, initial_data_path, user_data_path='chat_data_user.csv', threshold=0.3, vectorizer_path='tfidf_vectorizer.pkl'):
+        self.threshold = threshold
+        self.lemmatizer = WordNetLemmatizer()
+        self.user_data_path = user_data_path
 
-# Descargar recursos necesarios de nltk
-""" nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
- """
-# Inicializar el Stemmer y el Lemmatizer
-stemmer = PorterStemmer()
-lemmatizer = WordNetLemmatizer()
-
-# Función para eliminar tildes
-def remove_accents(text):
-    nfkd_form = unicodedata.normalize('NFKD', text)
-    return ''.join([c for c in nfkd_form if not unicodedata.combining(c)])
-
-# Función para eliminar caracteres no alfabéticos
-def remove_non_alphabets(text):
-    return re.sub(r'[^a-záéíóúñ\s]', '', text)
-
-# Función para preprocesar el texto
-def preprocess_text(text):
-    text = text.lower()  # Convertir a minúsculas
-    text = remove_accents(text)  # Eliminar tildes
-    text = remove_non_alphabets(text)  # Eliminar caracteres no alfabéticos
+        # Verificar si existe el archivo personalizado
+        if os.path.exists(user_data_path):
+            print(f"Using existing user data from {user_data_path}")
+            self.load_model(vectorizer_path, user_data_path)
+        elif os.path.exists(initial_data_path):
+            print(f"Training with initial data from {initial_data_path}")
+            self.load_data(initial_data_path)
+            self.prepare_vectorizer()
+            self.save_model(vectorizer_path, user_data_path)
+        else:
+            raise FileNotFoundError("No valid data file found to train the chatbot.")
     
-    tokens = nltk.word_tokenize(text)  # Tokenizar
-    stemmed_tokens = [stemmer.stem(token) for token in tokens]  # Stemming
-    lemmatized_tokens = [lemmatizer.lemmatize(token, pos=wordnet.VERB) for token in stemmed_tokens]  # Lemmatización
-    return " ".join(lemmatized_tokens)
+    def load_data(self, data_path):
+        """Load and preprocess the training data"""
+        self.df = pd.read_csv(data_path, delimiter='~')
+        self.df['processed_question'] = self.df['PREGUNTA'].apply(self.preprocess_text)
 
-# Preprocesar las preguntas
-print("Preprocesando las preguntas...")
-#X = [preprocess_text(text) for text in df['PREGUNTA']]  # Preprocesar preguntas
-X = df['PREGUNTA']  # Preguntas
-y = df['RESPUESTA']  # Respuestas
-print("Preprocesamiento completado.")
+    def add_training_data(self, question, answer):
+        """Add new training data and update the model"""
+        new_data = pd.DataFrame({'PREGUNTA': [question], 'RESPUESTA': [answer]})
+        self.df = pd.concat([self.df, new_data], ignore_index=True)
+        self.df.loc[len(self.df) - 1, 'processed_question'] = self.preprocess_text(question)
+        self.prepare_vectorizer()
+        
+        # Guardar los datos actualizados en el archivo personalizado
+        self.save_training_data(self.user_data_path)
 
-# Convertir texto a características numéricas usando TF-IDF
-print("Convirtiendo las preguntas a características numéricas usando TF-IDF...")
-vectorizer = TfidfVectorizer(stop_words="english", max_features=1000, ngram_range=(1, 2))  # Configuración de TF-IDF
-X_vectors = vectorizer.fit_transform(X)
-print("Conversión a características numéricas completada.")
+    def save_training_data(self, filepath):
+        """Save the current training data to a CSV file"""
+        self.df[['PREGUNTA', 'RESPUESTA']].to_csv(filepath, sep='~', index=False)
 
-# Entrenar el modelo
-print("Entrenando el modelo...")
-model = MultinomialNB() # se puede cambiar el valor de alpha o quitarlo
-model.fit(X_vectors, y)
-print("Modelo entrenado con éxito.")
+    def save_model(self, vectorizer_path, data_path):
+        """Guardar el vectorizador y los datos procesados"""
+        joblib.dump(self.vectorizer, vectorizer_path)
+        self.df.to_csv(data_path, sep='~', index=False)
 
-# Función para predecir la respuesta
-def get_response(user_input):
-    user_input_preprocessed = preprocess_text(user_input)
-    input_vector = vectorizer.transform([user_input_preprocessed])
+    def load_model(self, vectorizer_path, data_path):
+        """Cargar el vectorizador y los datos procesados"""
+        self.vectorizer = joblib.load(vectorizer_path)
+        self.df = pd.read_csv(data_path, delimiter='~')
+        self.question_vectors = self.vectorizer.transform(self.df['processed_question'])
+
+    def preprocess_text(self, text):
+        """Improved text preprocessing pipeline"""
+        # Lowercase
+        text = text.lower()
+        text = re.sub(r'[^\w\s]', '', text)
+        
+        tokens = word_tokenize(text)
+        
+        # remueve las stopwords pero conserva algunas palabras clave
+        stop_words = set(stopwords.words('english')) - {'how', 'what', 'why', 'which'}
+        tokens = [token for token in tokens if token not in stop_words]
+        
+        # Lemmatization
+        tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
+        
+        # esto es para reemplazar los términos de programación con palabras clave más comunes
+        programming_terms = {
+            'js': 'javascript',
+            'py': 'python',
+            'func': 'function',
+            'var': 'variable'
+        }
+        tokens = [programming_terms.get(token, token) for token in tokens]
+        
+        return ' '.join(tokens)
     
-    # Obtener las probabilidades para todas las clases
-    probabilities = model.predict_proba(input_vector)
-    
-    # Obtener la probabilidad más alta y su clase correspondiente
-    max_probability = probabilities.max()
-    max_class_index = probabilities.argmax()
-    predicted_class = model.classes_[max_class_index]
-    
-    # Mostrar probabilidad más alta y clase correspondiente
-    print(f"Probabilidad más alta: {max_probability:.2f} para la clase: {predicted_class}")
-    
-    """ # Devolver la predicción si supera el umbral
-    if max_probability < 0.30:
-        return "Lo siento, no entiendo tu pregunta." """
-    return predicted_class
+    def prepare_vectorizer(self):
+        """Initialize and fit the TF-IDF vectorizer"""
+        self.vectorizer = TfidfVectorizer(
+            ngram_range=(1, 2),
+            max_features=1000,
+            stop_words='english'
+        )
+        self.question_vectors = self.vectorizer.fit_transform(self.df['processed_question'])
+        
+    def get_response(self, user_input):
+        """Get the most relevant response using cosine similarity"""
+        # Preprocess the input
+        processed_input = self.preprocess_text(user_input)
+        
+        # vectoriza la pregunta del usuario
+        input_vector = self.vectorizer.transform([processed_input])
+        
+        # Calcula la similitud del coseno entre el vector de entrada y los vectores de preguntas
+        similarities = cosine_similarity(input_vector, self.question_vectors)
+        
+        # esto obtiene la mayor similaridad
+        max_similarity = similarities.max()
+        
+        if max_similarity < self.threshold:
+            programming_terms = ['python', 'javascript', 'function', 'variable', 'loop', 'class']
+            if any(term in processed_input for term in programming_terms):
+                return ("I'm not entirely sure, but I'll try to help. Could you rephrase your question "
+                       "or provide more specific details about what you want to know?")
+            return ("I'm sorry, I don't understand your question. Please make sure it's related to "
+                   "programming, specifically Python or JavaScript.")
+        
+        best_match_idx = similarities.argmax()
+        return self.df.iloc[best_match_idx]['RESPUESTA']
+      
+
+
+
+
+chatbot = ProgrammingChatbot("chat_data.csv")
+print("Programming Chatbot initialized. Type 'quit' to exit.")
 
 # Función para mostrar un mensaje en el área de texto
 def display_message(message, side):
@@ -93,17 +137,17 @@ def display_message(message, side):
     message_area.yview(tk.END)
     message_area.config(state=tk.DISABLED)
 
-# Función para enviar un mensaje
+
 def send_message(event=None):
     if send_button['state'] == 'normal':
         message = message_entry.get()
         if message.strip():
             display_message("\n👤: " + message+" ", "right")
-            msj_bot=get_response(message)
+            msj_bot=chatbot.get_response(message)
             l=detectar_lang(message)
             if l!=lang_envio:
                 message=traducir(message)
-                msj_bot=get_response(message)
+                msj_bot=chatbot.get_response(message)
 
             msj_final=msj_bot if l==lang_envio else traducir(msj_bot)
             message_entry.delete(0, tk.END)
@@ -199,19 +243,19 @@ message_area.tag_configure("red", foreground="red", background="yellow")
 # Entrada de texto
 frame_input = tk.Frame(frame_main)
 frame_input.pack(pady=10, fill="x", expand=True)
-message_entry = tk.Entry(frame_input, width=30, font=("Arial", 14))
+message_entry = tk.Entry(frame_input, width=30, font=("calibri", 14))
 message_entry.pack(side=tk.LEFT, padx=50, fill="x", expand=True)
 message_entry.bind("<Return>", send_message)
 message_entry.focus()
 
 # Botón enviar
-send_button = tk.Button(frame_input, text="Enviar", command=send_message, font=("Arial", 14))
-send_button.pack(side=tk.LEFT, padx=(0, 100))
+send_button = tk.Button(frame_input, text="Enviar", command=send_message, font=("calibri", 14))
+send_button.pack(side=tk.LEFT, padx=(0, 100), fill="x", expand=True)
 
 # Configuración de mensajes
-message_area.tag_configure("left_message", justify="left", foreground="black", font=("Arial", 14, "bold"))
+message_area.tag_configure("left_message", justify="left", foreground="black", font=("calibri", 14))
 message_area.tag_configure("code", justify="left", foreground="green", font=("Consolas", 14, "italic"))
-message_area.tag_configure("right_message", justify="right", foreground="blue", font=("Arial", 14, "bold"))
+message_area.tag_configure("right_message", justify="right", foreground="blue", font=("calibri", 14))
 
 # Ejecutar la aplicación
 root.mainloop()
