@@ -35,6 +35,10 @@ class ProgrammingChatbot:
     def load_data(self, data_path):
         """Load and preprocess the training data"""
         self.df = pd.read_csv(data_path, delimiter='~')
+        
+        self.df = self.df.dropna(subset=['PREGUNTA', 'RESPUESTA'])
+        self.df['PREGUNTA'] = self.df['PREGUNTA'].astype(str) 
+        
         self.df['processed_question'] = self.df['PREGUNTA'].apply(self.preprocess_text)
 
     def add_training_data(self, question, answer):
@@ -64,14 +68,27 @@ class ProgrammingChatbot:
 
     def preprocess_text(self, text):
         """Improved text preprocessing pipeline"""
+        
+        if pd.isna(text) or not isinstance(text, str):  # Verificar que el texto sea válido
+            return ''
         # Lowercase
         text = text.lower()
+        
+        # Reemplazar contracciones comunes como "what's" -> "whats"
+        text = re.sub(r"\'s", "s", text)  # Manejar 's (e.g., what's -> whats)
+        text = re.sub(r"\'t", "t", text)  # Manejar 't (e.g., don't -> dont)
+        text = re.sub(r"\'re", "re", text)  # Manejar 're (e.g., you're -> youre)
+        text = re.sub(r"\'ll", "ll", text)  # Manejar 'll (e.g., I'll -> Ill)
+        text = re.sub(r"\'ve", "ve", text)  # Manejar 've (e.g., I've -> Ive)
+        text = re.sub(r"\'d", "d", text)  # Manejar 'd (e.g., I'd -> Id)
+        text = re.sub(r"\'", "", text)  # Eliminar apóstrofes restantes
+        
         text = re.sub(r'[^\w\s]', '', text)
         
         tokens = word_tokenize(text)
         
         # remueve las stopwords pero conserva algunas palabras clave
-        stop_words = set(stopwords.words('english')) - {'how', 'what', 'why', 'which'}
+        stop_words = set(stopwords.words('english')) - {'how', 'what', 'why', 'which', 'you', 'this', 'who','can','do','no','here','more','up','not','where','there','about','while','doing'}
         tokens = [token for token in tokens if token not in stop_words]
         
         # Lemmatization
@@ -85,15 +102,19 @@ class ProgrammingChatbot:
             'var': 'variable'
         }
         tokens = [programming_terms.get(token, token) for token in tokens]
-        
-        return ' '.join(tokens)
+        processed_text = ' '.join(tokens)
+        #print(f"Preprocessed: '{text}' -> '{processed_text}'")  # Depuración
+        return processed_text
     
     def prepare_vectorizer(self):
         """Initialize and fit the TF-IDF vectorizer"""
+        # Stopwords personalizadas
+        custom_stopwords = set(stopwords.words('english')) - {'how', 'what', 'why', 'which', 'you', 'this', 'who','can','do','no','here','more','up','not','where','there','about','while','doing'}
+        custom_stopwords = list(custom_stopwords)
         self.vectorizer = TfidfVectorizer(
             ngram_range=(1, 2),
             max_features=1000,
-            stop_words='english'
+            stop_words=custom_stopwords
         )
         self.question_vectors = self.vectorizer.fit_transform(self.df['processed_question'])
         
@@ -131,28 +152,29 @@ print("Programming Chatbot initialized. Type 'quit' to exit.")
 
 # Función para mostrar un mensaje en el área de texto
 def display_message(message, side):
-    message_area.config(state=tk.NORMAL)
+    message_area.config(state=tk.NORMAL, bg="black")
 
     message_area.insert(tk.END, f"{message}\n", "right_message")
     message_area.yview(tk.END)
-    message_area.config(state=tk.DISABLED)
+    message_area.config(state=tk.DISABLED, bg="black")
 
 
 def send_message(event=None):
     if send_button['state'] == 'normal':
         message = message_entry.get()
         if message.strip():
-            display_message("\n👤: " + message+" ", "right")
+            display_message("\n👤: " + message+"\n", "right")
             msj_bot=chatbot.get_response(message)
             l=detectar_lang(message)
             if l!=lang_envio:
                 message=traducir(message)
+                print("Mensaje traducido: ", message)
                 msj_bot=chatbot.get_response(message)
 
             msj_final=msj_bot if l==lang_envio else traducir(msj_bot)
             message_entry.delete(0, tk.END)
             disable_send_button()
-            receive_message("🤖: " + msj_final)
+            receive_message("🤖: " + msj_final )
 
 
 def validar_texto(texto):
@@ -173,7 +195,7 @@ def validar_texto(texto):
 
 # Función para recibir un mensaje con manejo secuencial de texto
 def receive_message(message):
-    message_area.config(bg="gray90")
+    message_area.config(bg="black")
     vt = validar_texto(message)  # Lista de partes del texto procesado
     #print(vt, "tamaño: ", len(vt))
     process_vt(vt, 0)  # Procesa los elementos de vt uno por uno
@@ -188,7 +210,7 @@ def process_vt(vt, index):
 # Función para mostrar el efecto de tipeo en un solo mensaje
 def typing_effect(message, index, callback=None):
     if index < len(message):
-        message_area.config(state=tk.NORMAL)
+        message_area.config(state=tk.NORMAL, bg="black")
         char = message[index]
 
         # Si contiene ☺, aplica el formato especial
@@ -198,7 +220,7 @@ def typing_effect(message, index, callback=None):
         else:
             message_area.insert(tk.END, char, "left_message")
         
-        message_area.config(state=tk.DISABLED)
+        message_area.config(state=tk.DISABLED, bg="black")
         message_area.yview(tk.END)
         
         # Continuar escribiendo el siguiente carácter
@@ -207,19 +229,19 @@ def typing_effect(message, index, callback=None):
         # Cuando termina de escribir el mensaje, llama al callback
         if callback:
             callback()
-        message_area.config(state=tk.NORMAL)
+        message_area.config(state=tk.NORMAL, bg="black")
         #message_area.insert(tk.END, "\n")
-        message_area.config(state=tk.DISABLED)
+        message_area.config(state=tk.DISABLED, bg="black")
 
 
 # Habilitar/deshabilitar botón de enviar
 def disable_send_button():
-    message_entry.config(state=tk.DISABLED)
+    message_entry.config(state=tk.DISABLED, bg="black")
     send_button.config(state=tk.DISABLED)
 
 def enable_send_button():
     send_button.config(state=tk.NORMAL)
-    message_entry.config(state=tk.NORMAL)
+    message_entry.config(state=tk.NORMAL, bg="black")
 
 # Configurar la ventana principal
 root = tk.Tk()
@@ -229,33 +251,38 @@ x, y = (root.winfo_screenwidth() // 2 - width // 2, root.winfo_screenheight() //
 root.geometry(f"{width}x{height}+{x}+{y}")
 root.resizable(False, False)
 
+root.configure(bg="black")
+logo = tk.PhotoImage(file="images/logo.png") 
+root.iconphoto(False, logo)
+
+
 # Marco principal
-frame_main = tk.Frame(root)
+frame_main = tk.Frame(root, bg="black")
 frame_main.pack(fill="both", expand=True)
 
 # Área de texto
-frame_messages = tk.Frame(frame_main)
+frame_messages = tk.Frame(frame_main, bg="black")
 frame_messages.pack(padx=10, pady=10, fill="both", expand=True)
-message_area = scrolledtext.ScrolledText(frame_messages, wrap=tk.WORD, width=40, height=20, state=tk.DISABLED)
+message_area = scrolledtext.ScrolledText(frame_messages, wrap=tk.WORD, width=40, height=20,padx=15, pady=15, bg="black", fg="white", state=tk.DISABLED)
 message_area.pack(padx=10, pady=10, fill="both", expand=True)
 message_area.tag_configure("red", foreground="red", background="yellow")
 
 # Entrada de texto
-frame_input = tk.Frame(frame_main)
+frame_input = tk.Frame(frame_main, bg="black")
 frame_input.pack(pady=10, fill="x", expand=True)
-message_entry = tk.Entry(frame_input, width=30, font=("calibri", 14))
-message_entry.pack(side=tk.LEFT, padx=50, fill="x", expand=True)
+message_entry = tk.Entry(frame_input, width=30, font=("calibri", 14), bg="black", fg="white")
+message_entry.pack(side=tk.LEFT, padx=(50, 10), pady=5, ipady=8, fill="x", expand=True)
 message_entry.bind("<Return>", send_message)
 message_entry.focus()
 
 # Botón enviar
-send_button = tk.Button(frame_input, text="Enviar", command=send_message, font=("calibri", 14))
-send_button.pack(side=tk.LEFT, padx=(0, 100), fill="x", expand=True)
+send_button = tk.Button(frame_input, text="Enviar", command=send_message, font=("calibri", 14), bg="#00BFFF", fg="white", activebackground="#1E90FF")
+send_button.pack(side=tk.LEFT, padx=(10, 50), pady=5, ipady=4)
 
 # Configuración de mensajes
-message_area.tag_configure("left_message", justify="left", foreground="black", font=("calibri", 14))
-message_area.tag_configure("code", justify="left", foreground="green", font=("Consolas", 14, "italic"))
-message_area.tag_configure("right_message", justify="right", foreground="blue", font=("calibri", 14))
+message_area.tag_configure("left_message", justify="left", foreground="white", font=("calibri", 14))
+message_area.tag_configure("code", justify="left", foreground="cyan", font=("Consolas", 14, "italic"))
+message_area.tag_configure("right_message", justify="right", foreground="white", font=("calibri", 14))
 
 # Ejecutar la aplicación
 root.mainloop()

@@ -1,16 +1,150 @@
 PREGUNTA~RESPUESTA
-hi~Hello! How can I help you? I can answer questions about python, javascript, algorithms, and more. If you want to know how to do something, just use: how to do something, how to implement something, or give me an example of something.
-hello~Hello! How can I help you? I can answer questions about python, javascript, algorithms, and more. If you want to know how to do something, just use: how to do something, how to implement something, or give me an example of something.
-how are you?~I'm fine, thanks. And you?
-What is your name?~I'm a chatbot created to help you with programming questions. You can ask me anything related to Python, JavaScript, algorithms, and more. If you need help, feel free to ask!
-What are you?~I'm a chatbot created to help you with programming questions. You can ask me anything related to Python, JavaScript, algorithms, and more. If you need help, feel free to ask!
-What can you do?~I can answer questions about programming, algorithms, Python, JavaScript, and more. If you want to know how to do something, just use: how to do something, how to implement something, or give me an example of something.
-tell me a joke~What does a bee do in the gym? Buzz!
-bye~Goodbye! Have a nice day.
-I'm fine~I'm glad, tell me how I can help you today?
-I'm bad~Don't be discouraged, come on, ask me something and I'll try to answer you.
-I'm tired~Cheer up! You can relax by asking me questions.
-Do you know how to sing?~No, I'm a chat with limitations so I can't sing.
+hi~Hello! I hope you're doing well. I can help with Python or JavaScript. Just ask: "What is something, " or "How to implement something,"  
+hello~Hi! I hope you're doing great. Let me assist you with Python or JavaScript. Don't hesitate to ask how to do something or give an example.  
+hi, how are you?~Hello! I'm doing very well, thank you! I hope you're doing great too. I can assist with Python or JavaScript.  
+hello, how are you?~Hi! I'm doing fine, thanks for asking! I hope you're doing well too. I can assist with Python or JavaScript.  
+hi there~Hello there! I hope everything's good on your side. I'm here to help with Python or JavaScript—just ask me how to implement something or give me an example of something..  
+hello there~Hi! I hope you're having a great day. Let me know if you need help with Python or JavaScript. Just ask: "What does this mean?" or "How to do that?"  
+hi, can you help me?~Hello! Yes, I can! Let me know how I can assist you with Python or JavaScript.  
+hello, can you help me?~Hi! Absolutely! I'm here to help with Python or JavaScript. Just ask for explanations or examples.  
+hello, what can you help with?~Hi! I can assist you with Python or JavaScript. Let me know if you need examples or explanations.  
+hi, how's it going?~Hello! I'm doing great, thanks for asking! I hope things are good for you too. I can assist with Python or JavaScript—just ask how to do something or for a sample.  
+hello, what do you do?~Hi! I help with Python and JavaScript. Let me know if you need guidance, examples, or concepts explained.  
+hi, I need help~Hello! Let me know what you need. I can assist with Python or JavaScript—just ask your question directly.  
+hi, what can you do?~Hello! I can help you with Python or JavaScript. Ask me things like: "How to use this?" or "Give me an example of that."  
+hiya~Hiya! I hope all is good on your end. I can help with Python or JavaScript. Let me know what you need.  
+hey~Hey! I hope you're doing well. Let me assist you with Python or JavaScript. Just ask me anything about it!  
+yo~Yo! I hope everything's fine with you. Let me help you with Python or JavaScript—just let me know.  
+howdy~Howdy! I hope you're having a good day. I can assist you with Python or JavaScript.  
+hello, how are things?~Hi! Things are good, thank you! I hope everything's good with you too. Let me know if you need help with Python or JavaScript.  
+hi, how's everything?~Hello! Everything's going great, thank you! I hope everything's fine for you as well. Let me assist you with Python or JavaScript.  
+hello, hope you're well~Hello! I hope you're doing well today. I can help with Python or JavaScript, let me know if you need anything  
+hi, hope you're having a good day~Hello! I hope you're having a great day as well. I'm here to help with Python or JavaScript—just ask how to do something or for examples.
+hello, what's up?~Hi! I'm here and ready to help. Let me know if you have any questions about Python or JavaScript.  
+hi, I have a question~Hello! Sure, go ahead! I'm here to assist with Python or JavaScript.  
+hello, can you explain something?~Hi! Of course! Let me explain whatever you need about Python or JavaScript.  
+hello, I want to ask something~Hi! Sure thing! I'm here to answer your questions about Python or JavaScript.  
+how are you?~I'm doing very well, thank you! I hope you're doing great too. I can help you with Python or JavaScript—just ask!  
+how's it going?~I'm doing great, thanks for asking! I hope everything's going well for you too. Let me know if you need help with Python or JavaScript!  
+how are things?~Things are good, thank you! I hope all is well on your side too. Feel free to ask me about Python or JavaScript.  
+how's everything?~Everything's going great, thank you! I hope everything's fine for you as well. Let me know if you need assistance with Python or JavaScript.  
+what's up?~I'm doing fine, thanks for asking! I hope everything's good with you too. Let me know if you need help with Python or JavaScript.  
+how are you doing?~I'm doing great, thank you! I hope you're doing well too. I can assist you with Python or JavaScript.  
+thanks~You're welcome! I'm here if you need anything. Feel free to ask if you have more questions about Python or JavaScript.  
+thank you~No problem at all! I'm here for anything you need. If you have more questions on Python or JavaScript, just ask!  
+thanks for the help~You're very welcome! I'm happy to assist. Let me know if you need help with anything else related to Python or JavaScript.  
+thanks a lot~No worries! I'm always here to help. Let me know if you have more questions about Python or JavaScript.  
+thank you very much~It's my pleasure! Feel free to reach out if you need anything else, especially regarding Python or JavaScript.  
+thanks for your assistance~You're welcome! I'm glad to help. Don't hesitate to ask if you have more Python or JavaScript questions.
+I really appreciate your help~You're very welcome! I'm happy to assist anytime. If you have more questions on Python or JavaScript, just let me know.  
+thanks so much~No problem at all! I'm always happy to help. Feel free to ask anything about Python or JavaScript. If you want to know how to do something, just use: how to do something, how to implement something, or give me an example of something.  
+many thanks~You're welcome! I'm here to assist with anything you need, especially with Python or JavaScript.  
+I can't thank you enough~It's my pleasure! I'm here for any Python or JavaScript questions you might have.  
+thanks a ton~No worries at all! I'm here for anything you need. Feel free to ask about Python or JavaScript.  
+I appreciate it~You're welcome! If you need help with anything else, just let me know! I'm here for Python or JavaScript.  
+thanks for your support~You're welcome! I'm here to assist with anything you need. Let me know if you need help with Python or JavaScript.  
+I'm grateful~You're very welcome! I'm always here to help with Python or JavaScript, feel free to ask anytime.
+I appreciate it a lot~No problem at all! I'm glad I could assist. Let me know if you need anything more about Python or JavaScript.
+I'm thankful~You're welcome! I'm happy to help. Let me know if you have further questions about Python or JavaScript.
+Much appreciated~You're very welcome! Feel free to ask if you need more help with Python or JavaScript.
+I'm so thankful~It's my pleasure! If you need more help with Python or JavaScript, just let me know.
+Thanks a million~You're welcome! I'm happy to assist. Don't hesitate to ask if you need more examples or help with Python or JavaScript.
+I can't thank you enough~It's absolutely no problem! I'm here to assist with anything you need, especially Python or JavaScript.
+I'm so grateful~You're welcome! I'm glad I could help. If you need more guidance with Python or JavaScript, feel free to reach out!
+I really value your help~You're very welcome! Don't hesitate to ask if you need any more help with Python or JavaScript.
+Thanks heaps~No worries at all! I'm here to assist with anything related to Python or JavaScript.
+I'm in your debt~You're welcome! I'm always here for your questions on Python or JavaScript. Let me know if you need anything else.
+I'm so thankful for your help~You're very welcome! Feel free to reach out if you have more questions or need help with Python or JavaScript.
+goodbye~Take care! I hope to talk to you soon.
+see you~Take care and see you next time!
+bye~Goodbye! It was nice talking to you.
+farewell~Wishing you all the best! Farewell until next time.
+see you later~See you later! Take care!
+catch you later~Catch you later! Have a great day ahead.
+take care~Take care! Until next time!
+until next time~Until next time! Take care!
+have a great day~Have a great day! Hope to see you soon!
+bye for now~Bye for now! Looking forward to our next chat.
+talk soon~Talk to you soon! Take care in the meantime.
+until we meet again~Until we meet again! Take care!
+I'll be here~I'll be here! See you next time!
+take it easy~Take it easy! Hope to see you again soon!
+stay safe~Stay safe! See you next time.
+it was nice talking to you~It was nice talking to you! Take care and see you later.
+good night~Good night! Sleep well and take care.
+have a good one~Have a good one! Take care and talk soon.
+see you around~See you around! Take care!
+later~Later! Wishing you a great day ahead.
+be well~Bye! Take care of yourself.
+good morning~Good morning! I hope you're having a wonderful day. I can help with Python or JavaScript, feel free to ask anything!
+good afternoon~Good afternoon! I hope you're doing well today. I can assist with Python or JavaScript if you need help.
+good evening~Good evening! I hope you're having a pleasant evening. Let me know if you need assistance with Python or JavaScript.
+hello, good morning~Hello! Good morning! I hope your day is going well. I can help with Python or JavaScript, just let me know!
+hello, good afternoon~Hello! Good afternoon! I hope you're having a great day. If you need help with Python or JavaScript, feel free to ask.
+hello, good evening~Hello! Good evening! I hope you're enjoying your evening. I can assist with Python or JavaScript if needed.
+greetings~Greetings! I hope everything is going well with you. I can help with Python or JavaScript, just ask!
+salutations~Salutations! I hope you're having a good day. Feel free to ask if you need assistance with Python or JavaScript.
+what's your name?~Hello! I'm UsatBot. I can help you with Python or JavaScript. Feel free to ask anything!
+who is this?~Hi! I'm UsatBot. I'm here to assist you with Python or JavaScript. How can I help?
+who are you?~Hi! I'm UsatBot, a chatbot designed to assist with Python and JavaScript. Let me know if you need help!
+what are your capabilities?~I can assist with Python and JavaScript-related topics. If you have any questions about those, I'm here to help!
+I hope you're having a great day~I hope you're having a wonderful day as well. I'm here to help with Python or JavaScript if you need it.
+good day~Good day! I hope everything is going well with you. I can assist with Python or JavaScript if you have any questions.
+how do you do~How do you do? I hope everything is going great for you. If you need help with Python or JavaScript, feel free to ask.
+hello, how are you today~Hello! How are you today? I hope everything is well. I can assist with Python or JavaScript if you need.
+hope you're doing well today~I hope you're doing well today too. Let me know if you need help with Python or JavaScript.
+thank you for your help~You're welcome! It was my pleasure to help. Take care!
+thanks for your assistance~You're welcome! I'm glad I could help. Goodbye and take care!
+thanks for the help~You're welcome! Feel free to reach out again. Take care!
+thank you so much for your help~You're very welcome! I'm here anytime. Have a great day!
+thanks for helping me~No problem! I'm happy to help. Take care and see you next time!
+I appreciate your help~You're welcome! Glad I could assist. Take care and talk to you soon!
+thank you for your time~You're welcome! It was a pleasure. Have a great day ahead!
+thanks for your support~You're welcome! I'm always here to help. Take care!
+I'm grateful for your help~You're very welcome! I'm glad to assist anytime. Take care!
+thanks for the assistance~You're welcome! I'm here to help anytime. Stay well!
+thank you for everything~You're welcome! I'm always happy to help. Take care!
+thanks for your guidance~You're welcome! Glad I could be of help. Have a great day!
+thanks for your time and help~You're welcome! It was a pleasure to assist. See you soon!
+appreciate your help~You're welcome! I'm here for any future questions. Take care!
+thanks, that was helpful~You're welcome! I'm glad it was helpful. Take care!
+thanks for all the help~You're welcome! I'm happy I could assist. Until next time!
+what is your name?~Hello! My name is UsatBot. You can ask me anything related to Python, JavaScript, algorithms, and more. If you need help, feel free to ask!
+can you do anything else?~I can only help with Python and JavaScript. Let me know if you need guidance or examples related to them!
+what other tasks can you perform?~I'm limited to helping with Python and JavaScript. Feel free to ask about concepts or examples within those topics!
+what more can you help with?~I'm specialized in Python and JavaScript. If you have any questions about these, I'm here to assist!
+what else do you know?~I know Python and JavaScript! Let me know if you need help with anything related to those.
+is there anything else you can do besides Python and JavaScript?~I can only assist with Python and JavaScript topics. Let me know how I can help in those areas!
+can I ask you about something other than Python or JavaScript?~I'm afraid I can only help with Python or JavaScript-related questions. Feel free to ask me anything about those!
+can I ask you about other topics?~I'm only knowledgeable about Python and JavaScript. If you have questions on those, I'm here to help!
+is it okay to ask something not related to Python or JavaScript?~Sorry, I can only assist with Python and JavaScript. Let me know if you need help with those!
+can I ask you about other things?~I'm specialized in Python and JavaScript, so I can only answer questions related to those topics.
+is there anything else I can ask you?~I'm here to help with Python and JavaScript-related topics. I can't answer questions outside of those areas.
+can you help me with anything else?~I can only provide help with Python and JavaScript. Ask me anything related to those!
+can you answer questions about other subjects?~Sorry, I'm only here to help with Python and JavaScript. Let me know if you need help with those topics!
+can you help me with something outside of Python and JavaScript?~I'm afraid I can only assist with Python or JavaScript-related topics. Feel free to ask anything in those areas!
+is it possible to ask about topics other than Python and JavaScript?~I'm only equipped to answer questions on Python and JavaScript. Let me know how I can assist with those!
+what should I call you?~Hello! You can call me UsatBot. I'm here to assist with Python or JavaScript. Ask me anything!
+what is your name, if you don't mind me asking?~Hi! My name is UsatBot. I can help with Python or JavaScript, just let me know what you need!
+who am I speaking with?~Hello! You're speaking with UsatBot. I can assist with Python or JavaScript. How can I help today?
+can you tell me your name?~Hi! I'm UsatBot. I can help you with Python or JavaScript. If you want to know how to do something, just use: how to do something, how to implement something, or give me an example of something.
+what do I call you?~Hello! You can call me UsatBot. I can assist with Python or JavaScript. Let me know if you need help!
+who is answering?~Hi! This is UsatBot answering your questions. I can help with Python or JavaScript—just let me know!
+what else can you do?~I can only assist with Python or JavaScript. Feel free to ask any questions related to those!
+what else are you capable of?~I specialize in helping with Python and JavaScript. If you have any questions about them, I'm happy to help!
+what other things can you help with?~I can only provide assistance with Python or JavaScript. Let me know how I can help with those!
+is there anything else you can do?~I'm here to help with Python and JavaScript. I'm not able to assist with anything else, but feel free to ask questions about those!
+Yes?~I'm sorry, I don't understand what you mean. Could you please provide more context or ask something like, "What is [topic]?" or "How do I [action]?"
+No?~Understood, but I need more context. If you need help, you could ask something like, "Can you give me an example of [topic]?" or "Explain how [concept] works."
+Tell me more?~Sure, but I need more details. Please ask something specific like, "Can you explain more about [topic]?" or "Do you have another example of [concept]?"
+I want to know more?~Of course! But to help you better, please ask something like, "What does [topic] mean?" or "How does [concept] work?"
+Yes, I want?~Great! Please specify exactly what you need to know or ask something like, "Can you explain more about [topic]?"
+Explain?~Sure! Please be more specific and let me know what topic you want me to explain, or ask something like, "What does [concept] mean?" or "Can you give me an example of [topic]?"
+Give me an example?~Of course, but I need to know the topic. Please ask something like, "Can you give me an example of [topic]?" or "How can I apply [concept]?"
+I want to know?~I'm here to help, but I need to know exactly what you're looking for. Try asking something like, "What is [topic]?" or "How do I [action]?"
+Tell me something?~Sure, but I need more context. You can ask something like, "Tell me a fun fact about [topic]" or "Explain something about [concept]."
+Tell me?~I'd be happy to! Please specify the topic you're interested in. Ask something like, "What do you know about [topic]?" or "How does [concept] work?"
+
 Give me an interesting fact~The first programmer in the world was a woman. Her name was Ada Lovelace and she was born in 1815. Some people believe that Lovelace published the first algorithm intended to be executed by a machine.
 What is programming?~Programming is a process that consists of a sequence of detailed and ordered steps, these are called algorithms and the file where we transcribe these instructions using a programming language (Python, Java, Javascript, etc.) so that it can be executed by a computer, this would be the program.
 What is a programmer?~Person who develops computer programs.
