@@ -66,7 +66,7 @@ class ProgrammingChatbot:
     def load_model(self, vectorizer_path, data_path):
         """Cargar el vectorizador y los datos procesados"""
         self.vectorizer = joblib.load(vectorizer_path)
-        self.df = pd.read_csv(data_path, delimiter='¦')
+        self.df = pd.read_csv(data_path, delimiter='¦', engine='python')
         self.question_vectors = self.vectorizer.transform(self.df['processed_question'])
 
     def string_similarity(self, str1, str2):
