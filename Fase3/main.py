@@ -37,7 +37,7 @@ class ProgrammingChatbot:
     
     def load_data(self, data_path):
         #para cargar los datos iniciales
-        self.df = pd.read_csv(data_path, delimiter='~')
+        self.df = pd.read_csv(data_path, delimiter='¦')
         
         self.df = self.df.dropna(subset=['PREGUNTA', 'RESPUESTA'])
         self.df['PREGUNTA'] = self.df['PREGUNTA'].astype(str) 
@@ -56,17 +56,17 @@ class ProgrammingChatbot:
 
     def save_training_data(self, filepath):
         """esto es para guardar los datos de entrenamiento en un archivo CSV, se usa para actualizar el modelo"""
-        self.df[['PREGUNTA', 'RESPUESTA']].to_csv(filepath, sep='~', index=False)
+        self.df[['PREGUNTA', 'RESPUESTA']].to_csv(filepath, sep='¦', index=False)
 
     def save_model(self, vectorizer_path, data_path):
         """Guardar el vectorizador y los datos procesados, el vectorizador sirve para transformar las preguntas en vectores"""
         joblib.dump(self.vectorizer, vectorizer_path)
-        self.df.to_csv(data_path, sep='~', index=False)
+        self.df.to_csv(data_path, sep='¦', index=False)
 
     def load_model(self, vectorizer_path, data_path):
         """Cargar el vectorizador y los datos procesados"""
         self.vectorizer = joblib.load(vectorizer_path)
-        self.df = pd.read_csv(data_path, delimiter='~')
+        self.df = pd.read_csv(data_path, delimiter='¦')
         self.question_vectors = self.vectorizer.transform(self.df['processed_question'])
 
     def string_similarity(self, str1, str2):
@@ -269,7 +269,7 @@ def validar_texto(texto):
     resultado = []
     
     # Utilizamos re.finditer para buscar partes dentro y fuera de '|'
-    partes = re.finditer(r'(\|([^|]+)\|)|([^|]+)', texto)
+    partes = re.finditer(r'(```([^```]+)```)|([^```]+)', texto)
     
     # Procesamos cada coincidencia
     for match in partes:
