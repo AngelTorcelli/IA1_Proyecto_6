@@ -327,10 +327,26 @@ def typing_effect(message, index, callback=None):
 def disable_send_button():
     message_entry.config(state=tk.DISABLED, bg="#202020")
     send_button.config(state=tk.DISABLED)
+    clear_button.config(state=tk.DISABLED)
 
 def enable_send_button():
     send_button.config(state=tk.NORMAL)
+    clear_button.config(state=tk.NORMAL)
     message_entry.config(state=tk.NORMAL, bg="#202020")
+
+def clear_message_area():
+    """Limpiar el área de mensajes"""
+    message_area.config(state=tk.NORMAL)
+    message_area.delete(1.0, tk.END)
+    message_area.config(state=tk.DISABLED)
+
+def on_enter(event, button, color, text_color):
+    if button.cget("state") == tk.NORMAL:  # Solo cambiar si el botón está habilitado
+        button.config(bg=color, fg=text_color)
+
+def on_leave(event, button, color, text_color):
+    if button.cget("state") == tk.NORMAL:  # Solo restaurar si el botón está habilitado
+        button.config(bg=color, fg=text_color)
 
 # Configurar la ventana principal
 root = tk.Tk()
@@ -344,7 +360,6 @@ root.configure(bg="#202020")
 logo = tk.PhotoImage(file="images/logo.png") 
 root.iconphoto(False, logo)
 
-
 # Marco principal
 frame_main = tk.Frame(root, bg="#202020")
 frame_main.pack(fill="both", expand=True)
@@ -352,7 +367,7 @@ frame_main.pack(fill="both", expand=True)
 # Área de texto
 frame_messages = tk.Frame(frame_main, bg="#202020")
 frame_messages.pack(padx=10, pady=10, fill="both", expand=True)
-message_area = scrolledtext.ScrolledText(frame_messages, wrap=tk.WORD, width=40, height=20,padx=15, pady=15, bg="#2b2b29", fg="#fafafa", state=tk.DISABLED)
+message_area = scrolledtext.ScrolledText(frame_messages, wrap=tk.WORD, width=40, height=20, padx=15, pady=15, bg="#2b2b29", fg="#fafafa", state=tk.DISABLED)
 message_area.pack(padx=10, pady=10, fill="both", expand=True)
 message_area.tag_configure("red", foreground="red", background="yellow")
 
@@ -366,7 +381,17 @@ message_entry.focus()
 
 # Botón enviar
 send_button = tk.Button(frame_input, text="Enviar", command=send_message, font=("calibri", 14), bg="#0098cc", fg="#fafafa", activebackground="#1E90FF")
-send_button.pack(side=tk.LEFT, padx=(10, 50), pady=5, ipady=4)
+send_button.pack(side=tk.LEFT, padx=(10, 10), pady=5, ipady=4)
+
+# Botón limpiar
+clear_button = tk.Button(frame_input, text="Limpiar", command=clear_message_area, font=("calibri", 14), bg="#ff6347", fg="#fafafa", activebackground="#FF4500")
+clear_button.pack(side=tk.LEFT, padx=(10, 50), pady=5, ipady=4)
+
+# Asignar eventos para cambiar el color al pasar el cursor
+send_button.bind("<Enter>", lambda event: on_enter(event, send_button, "#cfe2f3", "#000000"))
+send_button.bind("<Leave>", lambda event: on_leave(event, send_button, "#0098cc", "#fafafa"))
+clear_button.bind("<Enter>", lambda event: on_enter(event, clear_button, "#ffd966", "#000000"))
+clear_button.bind("<Leave>", lambda event: on_leave(event, clear_button, "#ff6347", "#fafafa"))
 
 # Configuración de mensajes
 message_area.tag_configure("left_message", justify="left", foreground="#fafafa", font=("calibri", 14))
