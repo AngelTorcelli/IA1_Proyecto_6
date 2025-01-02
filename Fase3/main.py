@@ -230,9 +230,9 @@ class ProgrammingChatbot:
             return responses[0]
         
         # Combina las respuestas de manera inteligente
-        return (f"Let me address your question about '{original_question}' from multiple angles:\n\n"
-                f"1. {responses[0]}\n\n"
-                f"\n\nAdditionally:\n2. {responses[1]}")
+        return (f"Let me address your question about '{original_question}' from multiple angles:\\n\n"
+                f"1. {responses[0]}\n"
+                f"\\n\\nAdditionally:\\n\\n2. {responses[1]}")
 
 chatbot = ProgrammingChatbot("chat_data.csv", similarity_threshold=0.4, exact_match_threshold=0.90)
 print("Programa cargado correctamente")
@@ -261,7 +261,7 @@ def send_message(event=None):
             msj_final=msj_bot if l==lang_envio else traducir(msj_bot)
             message_entry.delete(0, tk.END)
             disable_send_button()
-            receive_message("🤖: " + msj_final )
+            receive_message("🤖: " + msj_final +"\\n")
 
 
 def validar_texto(texto):
