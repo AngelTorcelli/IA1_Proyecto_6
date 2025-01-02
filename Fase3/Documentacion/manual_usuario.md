@@ -29,7 +29,10 @@
 
 ## Acceso a UsatBot
 
-1. **Ejecutable:** [Haz clik aquí para ir al ejecutable]().
+1. **Ejecutable  (link de Drive):** [Haz clik aquí para ir al ejecutable](https://drive.google.com/drive/folders/1i77RY_qpONn35GZPGm6av4mXL8Mq6BkU?usp=sharing).
+
+    - Descargar la carpeta "dist"
+    - Ejecutar el archivo "main.exe"
 
 2. **Codigo:** Puede Descargar este repositorio y ejecutarlo por medio de `python main.py`. Inicialmente hara un entrenamiento si no tiene el archivo `chat_data_user.csv`, de lo contrario se inicializara inmediatamente.
 

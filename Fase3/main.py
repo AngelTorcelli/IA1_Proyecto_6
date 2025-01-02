@@ -230,9 +230,9 @@ class ProgrammingChatbot:
             return responses[0]
         
         # Combina las respuestas de manera inteligente
-        return (f"Let me address your question about '{original_question}' from multiple angles:\\n\n"
+        return (f"Let me address your question about '{original_question.replace("py", "Python")}' from multiple angles:\\n\n"
                 f"1. {responses[0]}\n"
-                f"\\n\\nAdditionally:\\n\\n2. {responses[1]}")
+                f"\\nAdditionally:\\n\\n2. {responses[1]}")
 
 chatbot = ProgrammingChatbot("chat_data.csv", similarity_threshold=0.4, exact_match_threshold=0.90)
 print("Programa cargado correctamente")
@@ -249,8 +249,10 @@ def display_message(message, side):
 def send_message(event=None):
     if send_button['state'] == 'normal':
         message = message_entry.get()
+        
         if message.strip():
             display_message("\n👤: " + message+"\n", "right")
+            message = message.replace("python", "py").replace("Python", "py")
             msj_bot=chatbot.get_response(message)
             l=detectar_lang(message)
             if l!=lang_envio:
