@@ -61,7 +61,13 @@ UsatBot responderá automáticamente cuando envies tu mensaje. Además, podrás 
 
 ![Respuestas de usatbot](../images/chatmensajes.png)
 
-### 3. Preguntas que puedes hacer
+### 3. Elimina mensajes
+
+Podrás eliminar el historial de mensajes que queda en la pantalla presionando el boton de limpiar. Esto eliminara todo lo anterior dejando el área completamente vacia.
+
+![Eliminar mensajes de usatbot](../images/interfaz_limpiar.png)
+
+### 4. Preguntas que puedes hacer
 
 UsatBot está diseñado para responder preguntas relacionadas con programación, específicamente sobre Python y JavaScript, proporcionando información útil. Además, puedes consultarle sobre la generación de código que va desde algo básico como a generación de algoritmos.
 
